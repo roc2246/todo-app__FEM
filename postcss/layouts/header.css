@@ -4,8 +4,8 @@ header{
 }
 
 .top{
-    & .top__display-mode{
-        & .top__display-mode--light{
+    &__display-mode{
+        &--light{
             display: none;
         }
     }
