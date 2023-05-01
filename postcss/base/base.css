@@ -1,9 +1,0 @@
-html{
-    font-size: var(--font-size);
-    font-family: var(--font-family);
-}
-
-body{
-    background-color: blue;
-    margin: 0;
-}

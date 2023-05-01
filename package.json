@@ -4,7 +4,6 @@
   "description": "![Design preview for the Todo app coding challenge](./design/desktop-preview.jpg)",
   "main": "script.js",
   "scripts": {
-    "postcss:watch": "postcss postcss/style.css --dir public --watch",
     "compile:sass": "node-sass sass/main.scss css/style.css -w"
   },
   "repository": {
@@ -18,17 +17,6 @@
     "url": "https://github.com/roc2246/todo-app__FEM/issues"
   },
   "homepage": "https://github.com/roc2246/todo-app__FEM#readme",
-  "devDependencies": {
-    "cssnano": "^6.0.1",
-    "postcss": "^8.4.23",
-    "postcss-bem": "^0.4.1",
-    "postcss-bem-fix": "^2.1.0",
-    "postcss-cli": "^10.1.0",
-    "postcss-import": "^15.1.0",
-    "postcss-nested": "^6.0.1",
-    "postcss-nesting": "^11.2.2",
-    "postcss-preset-env": "^8.3.2"
-  },
   "dependencies": {
     "node-sass": "^8.0.0",
     "sass": "^1.62.1"
