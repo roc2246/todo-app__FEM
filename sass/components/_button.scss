@@ -3,3 +3,15 @@ button{
     border: none;
     background-color: transparent;
 }
+
+.todos__layout{
+    &--delete{
+        padding: 0;
+        width: 2rem;
+        height: auto;
+    }
+    &--delete-icon{
+        width: .75rem;
+        height: auto;
+    }
+}

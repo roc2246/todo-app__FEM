@@ -19,18 +19,29 @@ button {
   border: none;
   background-color: transparent; }
 
+.todos__layout--delete {
+  padding: 0;
+  width: 2rem;
+  height: auto; }
+
+.todos__layout--delete-icon {
+  width: .75rem;
+  height: auto; }
+
 .todos__layout {
   border: solid;
   display: flex;
   flex-direction: row;
   background-color: white; }
-  .todos__layout:nth-child(1) {
-    border-top-left-radius: 0.25rem;
-    border-top-right-radius: 0.25rem; }
   .todos__layout--input {
     border: none;
     height: 2.5rem;
-    width: 100%; }
+    width: auto; }
+  .todos__layout--delete {
+    margin-left: auto; }
+  .todos__layout:nth-child(1) {
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem; }
 
 .todos__new {
   border-radius: 0.25rem;
@@ -45,7 +56,7 @@ main {
 .todos__list {
   display: flex;
   flex-direction: column;
-  gap: .25rem; }
+  gap: .15rem; }
 
 header {
   background-image: url("/images/bg-desktop-light.jpg");
