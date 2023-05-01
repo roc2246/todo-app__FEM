@@ -1,12 +1,16 @@
 $border-radius: 0.25rem;
 
 .todos {
-// width: fit-content;
   &__layout {
     border: solid;
     display: flex;
     flex-direction: row;
     background-color: white;
+
+    &--checkbox{
+      // display: none;
+    }
+
     &--input {
       border: none;
       height: 2.5rem;
