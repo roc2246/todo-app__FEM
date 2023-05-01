@@ -1,0 +1,28 @@
+{
+  "name": "todo-app-main",
+  "version": "1.0.0",
+  "description": "![Design preview for the Todo app coding challenge](./design/desktop-preview.jpg)",
+  "main": "script.js",
+  "scripts": {
+    "postcss:watch": "postcss postcss/style.css --dir public --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roc2246/todo-app__FEM.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/roc2246/todo-app__FEM/issues"
+  },
+  "homepage": "https://github.com/roc2246/todo-app__FEM#readme",
+  "devDependencies": {
+    "cssnano": "^6.0.1",
+    "postcss": "^8.4.23",
+    "postcss-cli": "^10.1.0",
+    "postcss-import": "^15.1.0",
+    "postcss-nesting": "^11.2.2",
+    "postcss-preset-env": "^8.3.2"
+  }
+}
