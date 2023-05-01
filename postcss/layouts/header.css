@@ -1,0 +1,12 @@
+header{
+    background-color: red;
+    width: 100%;
+}
+
+.top{
+    & .top__display-mode{
+        & .top__display-mode--light{
+            display: none;
+        }
+    }
+}
