@@ -4,11 +4,12 @@ html {
   font-family: "Josefin Sans", sans-serif; }
 
 body {
-  background-color: blue;
-  margin: 0; }
+  margin: 0;
+  background-color: #fafafa; }
 
 header {
-  background-image: url("/images/bg-desktop-light.jpg"); }
+  background-image: url("/images/bg-desktop-light.jpg");
+  height: 10rem; }
 
 .top__heading {
   margin: 0; }
@@ -20,6 +21,10 @@ button {
 .top {
   display: flex;
   flex-direction: row;
-  justify-content: space-between; }
+  justify-content: space-between;
+  align-content: center;
+  max-width: 20rem;
+  margin-left: auto;
+  margin-right: auto; }
   .top__display-mode--light {
     display: none; }

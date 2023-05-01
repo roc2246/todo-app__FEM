@@ -1,11 +1,12 @@
-.top{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-
-    &__display-mode{
-        &--light{
-            display: none;
-        }
+.top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  @include centerAndWidth();
+  &__display-mode {
+    &--light {
+      display: none;
     }
+  }
 }
