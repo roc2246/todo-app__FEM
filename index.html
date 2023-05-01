@@ -1,36 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Frontend Mentor | Todo app</title>
+  </head>
+  <body>
+    <header class="top">
+      <h1 class="top__heading">TO DO</h1>
+      <button class="top__display-mode">
+        <img
+          src="./images/icon-moon.svg"
+          alt="Dark Mode"
+          class="top__display-mode--dark"
+        />
+        <img
+          src="./images/icon-sun.svg"
+          alt="Light Mode"
+          class="top__display-mode--light"
+        />
+      </button>
+    </header>
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Todo app</title>
+    <main>
+      <form method="POST" class="todos">
+        <span class="todos__layout todos__new">
+          <input type="radio" name="to-do-radio" class="todos__layout--radio" />
+          <input
+            type="text"
+            placeholder="Create a new todo..."
+            name="new to do"
+            id="new-to-do"
+            class="todos__layout--input"
+          />
+        </span>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+        <div class="todos__list">
+          <span class="todos__layout todos__list--item todos__list--completed">
+            <input
+              type="radio"
+              name="to-do-radio"
+              class="todos__layout--radio"
+            />
+            <input
+              type="text"
+              placeholder="Complete online JavaScript course"
+              name="to do"
+              class="todos__layout--input"
+            />
+            <img
+              src="./images/icon-cross.svg"
+              alt="Delete To Do"
+              class="todos__layout--delete"
+            />
+          </span>
 
-  Todo
+          <span class="todos__layout todos__list--item">
+            <input
+              type="radio"
+              name="to-do-radio"
+              class="todos__layout--radio"
+            />
+            <input
+              type="text"
+              placeholder="Jog around the park 3x"
+              name="to do"
+              class="todos__layout--input"
+            />
+            <img
+              src="./images/icon-cross.svg"
+              alt="Delete To Do"
+              class="todos__layout--delete"
+            />
+          </span>
 
-  <!-- Add dynamic number --> items left
+          <span class="todos__layout todos__list--item">
+            <input
+              type="radio"
+              name="to-do-radio"
+              class="todos__layout--radio"
+            />
+            <input
+              type="text"
+              placeholder="10 minute meditation"
+              name="to do"
+              class="todos__layout--input"
+            />
+            <img
+              src="./images/icon-cross.svg"
+              alt="Delete To Do"
+              class="todos__layout--delete"
+            />
+          </span>
 
-  All
-  Active 
-  Completed
+          <span class="todos__layout todos__list--item">
+            <input
+              type="radio"
+              name="to-do-radio"
+              class="todos__layout--radio"
+            />
+            <input
+              type="text"
+              placeholder="Read for 1 hour"
+              name="to do"
+              class="todos__layout--input"
+            />
+            <img
+              src="./images/icon-cross.svg"
+              alt="Delete To Do"
+              class="todos__layout--delete"
+            />
+          </span>
+        </div>
 
-  Clear Completed
+        <div class="todos__manage">
+          <aside class="todos__manage--items-left">
+            <span id="todos-left">0</span> items left
+          </aside>
+          <button class="todos__manage--all">All</button>
+          <button class="todos__manage--active">Active</button>
+          <button class="todos__manage--completed">Completed</button>
+          <button class="todos__manage--clear">Clear Completed</button>
+        </div>
+      </form>
+    </main>
 
-  Drag and drop to reorder list
+    <footer><aside>Drag and drop to reorder list</aside></footer>
 
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
