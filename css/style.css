@@ -42,6 +42,11 @@ main {
   margin-right: auto;
   transform: translate(0, -5rem); }
 
+.todos__list {
+  display: flex;
+  flex-direction: column;
+  gap: .25rem; }
+
 header {
   background-image: url("/images/bg-desktop-light.jpg");
   background-repeat: no-repeat;
