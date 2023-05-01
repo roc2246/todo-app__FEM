@@ -7,16 +7,25 @@ body {
   margin: 0;
   background-color: #fafafa; }
 
-header {
-  background-image: url("/images/bg-desktop-light.jpg");
-  height: 10rem; }
-
 .top__heading {
   margin: 0; }
 
 button {
   border: none;
   background-color: transparent; }
+
+.todos {
+  display: flex;
+  flex-direction: column; }
+
+main {
+  max-width: 20rem;
+  margin-left: auto;
+  margin-right: auto; }
+
+header {
+  background-image: url("/images/bg-desktop-light.jpg");
+  height: 10rem; }
 
 .top {
   display: flex;
