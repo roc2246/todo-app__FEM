@@ -4,13 +4,9 @@
   }
 }
 
-.todos {
-  &__list {
-    &--item > .todos__layout--input {
-      &::placeholder {
-        color: $color-very-dark-desaturated-blue;
-        font-weight: $font-weight-bolder;
-      }
-    }
+.todos__list--item > .todos__layout--input {
+  &::placeholder {
+    color: $color-very-dark-desaturated-blue;
+    font-weight: $font-weight-bolder;
   }
 }
