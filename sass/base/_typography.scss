@@ -1,5 +1,16 @@
-.top{
-  &__heading{
+.top {
+  &__heading {
     margin: 0;
-}  
+  }
+}
+
+.todos {
+  &__list {
+    &--item > .todos__layout--input {
+      &::placeholder {
+        color: $color-very-dark-desaturated-blue;
+        font-weight: $font-weight-bolder;
+      }
+    }
+  }
 }

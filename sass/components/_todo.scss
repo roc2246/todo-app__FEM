@@ -1,4 +1,25 @@
-.todos{
+$border-radius: 0.25rem;
+
+.todos {
+  &__layout {
+    border: solid;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    background-color: white;
+    &:nth-child(1) {
+      border-top-left-radius: $border-radius;
+      border-top-right-radius: $border-radius;
+    }
+
+    &--input {
+      border: none;
+      height: 2.5rem;
+      width: 100%;
+    }
+  }
+
+  &__new {
+    border-radius: $border-radius;
+    margin-bottom: 0.75rem;
+  }
 }

@@ -10,21 +10,42 @@ body {
 .top__heading {
   margin: 0; }
 
+.todos__list--item > .todos__layout--input::placeholder {
+  color: #25273c;
+  font-weight: 700; }
+
 button {
+  cursor: pointer;
   border: none;
   background-color: transparent; }
 
-.todos {
+.todos__layout {
+  border: solid;
   display: flex;
-  flex-direction: column; }
+  flex-direction: row;
+  background-color: white; }
+  .todos__layout:nth-child(1) {
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem; }
+  .todos__layout--input {
+    border: none;
+    height: 2.5rem;
+    width: 100%; }
+
+.todos__new {
+  border-radius: 0.25rem;
+  margin-bottom: 0.75rem; }
 
 main {
   max-width: 20rem;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  transform: translate(0, -5rem); }
 
 header {
   background-image: url("/images/bg-desktop-light.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 10rem; }
 
 .top {
