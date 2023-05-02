@@ -47,36 +47,38 @@ button {
 .filter-box-central > button:nth-child(1) {
   color: blue; }
 
-.todos__layout {
-  display: flex;
-  flex-direction: row;
-  background-color: white;
-  padding-left: .5rem;
-  padding-right: .5rem; }
-  .todos__layout--input {
-    border: none;
-    height: 2.5rem;
-    width: auto;
-    margin-left: .5rem; }
-  .todos__layout--circle {
-    margin-top: auto;
-    margin-bottom: auto; }
-  .todos__layout--text {
-    cursor: pointer;
-    border: none;
-    height: 2.5rem;
-    width: auto;
-    margin: 0  0 0 .5rem;
-    line-height: 2.5rem; }
-  .todos__layout--delete {
-    margin-left: auto; }
-  .todos__layout:nth-child(1) {
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem; }
-
-.todos__new {
-  border-radius: 0.5rem;
-  margin-bottom: 0.75rem; }
+.todos {
+  margin-left: 1rem;
+  margin-right: 1rem; }
+  .todos__layout {
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    padding-left: .5rem;
+    padding-right: .5rem; }
+    .todos__layout--input {
+      border: none;
+      height: 2.5rem;
+      width: auto;
+      margin-left: .5rem; }
+    .todos__layout--circle {
+      margin-top: auto;
+      margin-bottom: auto; }
+    .todos__layout--text {
+      cursor: pointer;
+      border: none;
+      height: 2.5rem;
+      width: auto;
+      margin: 0  0 0 .5rem;
+      line-height: 2.5rem; }
+    .todos__layout--delete {
+      margin-left: auto; }
+    .todos__layout:nth-child(1) {
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0.5rem; }
+  .todos__new {
+    border-radius: 0.5rem;
+    margin-bottom: 0.75rem; }
 
 .todos__manage {
   display: flex;
@@ -132,6 +134,8 @@ header {
   flex-direction: row;
   justify-content: space-between;
   padding-top: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   max-width: 30rem;
   margin-left: auto;
   margin-right: auto; }
