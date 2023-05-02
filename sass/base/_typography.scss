@@ -1,3 +1,8 @@
+button {
+  color: $color-dark-grayish-blue;
+  font-weight: $font-weight-bolder;
+}
+
 .top {
   &__heading {
     margin: 0;
@@ -11,4 +16,19 @@
     color: $color-very-dark-desaturated-blue;
     font-weight: $font-weight-bolder;
   }
+}
+
+.todos{
+  &__manage{
+    &--items-left{
+      margin: 0;
+      font-size: .75rem;
+      color: $color-dark-grayish-blue;
+      font-weight: $font-weight-bolder;
+    }
+  }
+}
+
+aside {
+  font-weight: $font-weight-bolder;
 }

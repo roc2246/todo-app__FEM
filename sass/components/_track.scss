@@ -1,0 +1,15 @@
+$border-radius: 0.5rem;
+
+.todos{
+    &__manage{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1rem .5rem 1rem .5rem;
+        margin-top: .15rem;
+        background-color: white;
+        border-bottom-left-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
+        @include centerAndWidth();
+    }
+}

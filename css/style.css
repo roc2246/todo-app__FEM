@@ -7,6 +7,10 @@ body {
   margin: 0;
   background-color: #fafafa; }
 
+button {
+  color: #777a92;
+  font-weight: 700; }
+
 .top__heading {
   margin: 0;
   color: white;
@@ -14,6 +18,15 @@ body {
 
 .todos__list--item > .todos__layout--input::placeholder {
   color: #25273c;
+  font-weight: 700; }
+
+.todos__manage--items-left {
+  margin: 0;
+  font-size: .75rem;
+  color: #777a92;
+  font-weight: 700; }
+
+aside {
   font-weight: 700; }
 
 button {
@@ -32,7 +45,6 @@ button {
   height: auto; }
 
 .todos__layout {
-  border: solid;
   display: flex;
   flex-direction: row;
   background-color: white;
@@ -49,12 +61,25 @@ button {
   .todos__layout--delete {
     margin-left: auto; }
   .todos__layout:nth-child(1) {
-    border-top-left-radius: 0.25rem;
-    border-top-right-radius: 0.25rem; }
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem; }
 
 .todos__new {
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
   margin-bottom: 0.75rem; }
+
+.todos__manage {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1rem .5rem 1rem .5rem;
+  margin-top: .15rem;
+  background-color: white;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  max-width: 20rem;
+  margin-left: auto;
+  margin-right: auto; }
 
 main {
   max-width: 20rem;

@@ -1,8 +1,7 @@
-$border-radius: 0.25rem;
+$border-radius: 0.5rem;
 
 .todos {
   &__layout {
-    border: solid;
     display: flex;
     flex-direction: row;
     background-color: white;
