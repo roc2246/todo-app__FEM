@@ -5,10 +5,11 @@ button{
 }
 
 .todos__layout{
-    &--delete{
-        padding: 0;
-        width: 2rem;
-        height: auto;
+    &--circle{
+        width: 1rem;
+        height: 1rem;
+        border: solid 1px;
+        border-radius: 50%;
     }
     &--delete-icon{
         width: .75rem;

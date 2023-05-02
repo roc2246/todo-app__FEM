@@ -7,8 +7,11 @@ $border-radius: 0.25rem;
     flex-direction: row;
     background-color: white;
 
-    &--checkbox{
-      // display: none;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    &--circle{
+      margin-top: auto;
+      margin-bottom: auto;
     }
 
     &--input {
