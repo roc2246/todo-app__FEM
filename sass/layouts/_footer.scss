@@ -1,0 +1,6 @@
+footer{
+    @include centerAndWidth();
+    aside{
+        text-align: center;
+    }
+}

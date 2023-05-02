@@ -108,3 +108,10 @@ header {
   margin-right: auto; }
   .top__display-mode--light {
     display: none; }
+
+footer {
+  max-width: 20rem;
+  margin-left: auto;
+  margin-right: auto; }
+  footer aside {
+    text-align: center; }
