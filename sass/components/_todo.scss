@@ -8,16 +8,25 @@ $border-radius: 0.5rem;
 
     padding-left: .5rem;
     padding-right: .5rem;
-    &--circle{
-      margin-top: auto;
-      margin-bottom: auto;
-    }
-
     &--input {
       border: none;
       height: 2.5rem;
       width: auto;
       margin-left: .5rem;
+    }
+
+    &--circle{
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+
+    &--text {
+      cursor: pointer;
+      border: none;
+      height: 2.5rem;
+      width: auto;
+      margin: 0  0 0 .5rem;
+      line-height: 2.5rem;
     }
 
     &--delete{

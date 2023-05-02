@@ -53,14 +53,21 @@ button {
   background-color: white;
   padding-left: .5rem;
   padding-right: .5rem; }
-  .todos__layout--circle {
-    margin-top: auto;
-    margin-bottom: auto; }
   .todos__layout--input {
     border: none;
     height: 2.5rem;
     width: auto;
     margin-left: .5rem; }
+  .todos__layout--circle {
+    margin-top: auto;
+    margin-bottom: auto; }
+  .todos__layout--text {
+    cursor: pointer;
+    border: none;
+    height: 2.5rem;
+    width: auto;
+    margin: 0  0 0 .5rem;
+    line-height: 2.5rem; }
   .todos__layout--delete {
     margin-left: auto; }
   .todos__layout:nth-child(1) {
@@ -80,7 +87,7 @@ button {
   background-color: white;
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
-  max-width: 20rem;
+  max-width: 30rem;
   margin-left: auto;
   margin-right: auto; }
 
@@ -104,7 +111,7 @@ button {
       display: none; } }
 
 main {
-  max-width: 20rem;
+  max-width: 30rem;
   margin-left: auto;
   margin-right: auto;
   transform: translate(0, -5rem); }
@@ -125,14 +132,14 @@ header {
   flex-direction: row;
   justify-content: space-between;
   padding-top: 2rem;
-  max-width: 20rem;
+  max-width: 30rem;
   margin-left: auto;
   margin-right: auto; }
   .top__display-mode--light {
     display: none; }
 
 footer {
-  max-width: 20rem;
+  max-width: 30rem;
   margin-left: auto;
   margin-right: auto; }
   footer aside {
