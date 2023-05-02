@@ -42,7 +42,8 @@ button {
   .todos__layout--input {
     border: none;
     height: 2.5rem;
-    width: auto; }
+    width: auto;
+    margin-left: .5rem; }
   .todos__layout--delete {
     margin-left: auto; }
   .todos__layout:nth-child(1) {
