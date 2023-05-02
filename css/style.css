@@ -90,12 +90,18 @@ button {
   gap: .5rem; }
   .filter-box-central--desktop {
     display: none; }
+  @media (min-width: 376px) {
+    .filter-box-central--desktop {
+      display: flex; } }
   .filter-box-central--mobile {
     justify-content: center;
     background-color: white;
     border-radius: 0.5rem;
     padding: 1rem 0.5rem 1rem 0.5rem;
     margin-top: 1rem; }
+  @media (min-width: 376px) {
+    .filter-box-central--mobile {
+      display: none; } }
 
 main {
   max-width: 20rem;
