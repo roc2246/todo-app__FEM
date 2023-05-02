@@ -9,7 +9,7 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-content: center;
+  padding-top: 2rem;
   @include centerAndWidth();
   &__display-mode {
     &--light {

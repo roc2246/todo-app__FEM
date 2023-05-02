@@ -8,7 +8,9 @@ body {
   background-color: #fafafa; }
 
 .top__heading {
-  margin: 0; }
+  margin: 0;
+  color: white;
+  font-weight: 700; }
 
 .todos__list--item > .todos__layout--input::placeholder {
   color: #25273c;
@@ -75,7 +77,7 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-content: center;
+  padding-top: 2rem;
   max-width: 20rem;
   margin-left: auto;
   margin-right: auto; }
