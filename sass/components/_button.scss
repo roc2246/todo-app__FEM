@@ -16,3 +16,9 @@ button{
         height: auto;
     }
 }
+
+.filter-box-central {
+& >button:nth-child(1){
+    color: blue;
+}
+}

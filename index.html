@@ -121,17 +121,24 @@
 
         <div class="todos__manage">
           <p class="todos__manage--items-left">
-            <span id="todos-left">0</span> items left
+            <span id="todos-left"></span> items left
           </p>
 
-          <!-- <div class="btn-box-central">
-            <button class="btn btn--all">All</button>
-            <button class="btn btn--active">Active</button>
-            <button class="btn btn--completed">Completed</button>
-          </div> -->
+          <div class="filter-box-central filter-box-central--desktop">
+            <button class="filter filter--all">All</button>
+            <button class="filter filter--active">Active</button>
+            <button class="filter filter--completed">Completed</button>
+          </div>
 
-          <button class="btn btn--clear">Clear Completed</button>
+          <button class="filter filter--clear">Clear Completed</button>
         </div>
+
+        <div class="filter-box-central filter-box-central--mobile">
+          <button class="filter filter--all">All</button>
+          <button class="filter filter--active">Active</button>
+          <button class="filter filter--completed">Completed</button>
+        </div>
+
       </form>
     </main>
 

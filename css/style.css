@@ -44,6 +44,9 @@ button {
   width: .75rem;
   height: auto; }
 
+.filter-box-central > button:nth-child(1) {
+  color: blue; }
+
 .todos__layout {
   display: flex;
   flex-direction: row;
@@ -80,6 +83,19 @@ button {
   max-width: 20rem;
   margin-left: auto;
   margin-right: auto; }
+
+.filter-box-central {
+  display: flex;
+  flex-direction: row;
+  gap: .5rem; }
+  .filter-box-central--desktop {
+    display: none; }
+  .filter-box-central--mobile {
+    justify-content: center;
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1rem 0.5rem 1rem 0.5rem;
+    margin-top: 1rem; }
 
 main {
   max-width: 20rem;

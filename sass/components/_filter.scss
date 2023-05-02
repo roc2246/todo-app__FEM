@@ -1,0 +1,17 @@
+$border-radius: 0.5rem;
+
+.filter-box-central {
+    display: flex;
+    flex-direction: row;
+    gap: .5rem;
+  &--desktop {
+    display: none;
+  }
+  &--mobile {
+    justify-content: center;
+    background-color: white;
+    border-radius: $border-radius;
+    padding: 1rem 0.5rem 1rem 0.5rem;
+    margin-top: 1rem;
+  }
+}
