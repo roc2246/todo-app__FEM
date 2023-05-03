@@ -34,8 +34,6 @@ footer {
   max-width: 30rem;
   margin-left: auto;
   margin-right: auto; }
-  footer aside {
-    text-align: center; }
 
 .top__heading {
   margin: 0;
@@ -75,8 +73,7 @@ aside {
     display: flex;
     flex-direction: row;
     background-color: white;
-    padding-left: .5rem;
-    padding-right: .5rem; }
+    padding: .5rem 1rem .5rem 1rem; }
     .todos__layout--input {
       border: none;
       height: 2.5rem;
@@ -90,7 +87,7 @@ aside {
       border: none;
       height: 2.5rem;
       width: auto;
-      margin: 0  0 0 .5rem;
+      margin: 0  0 0 .75rem;
       line-height: 2.5rem; }
     .todos__layout--delete {
       margin-left: auto; }
@@ -105,7 +102,7 @@ aside {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 1rem .5rem 1rem .5rem;
+  padding: 1rem;
   margin-top: .15rem;
   background-color: white;
   border-bottom-left-radius: 0.5rem;
@@ -151,9 +148,5 @@ aside {
   .top__display-mode--light {
     display: none; }
 
-footer {
-  max-width: 30rem;
-  margin-left: auto;
-  margin-right: auto; }
-  footer aside {
-    text-align: center; }
+footer > p {
+  text-align: center; }
