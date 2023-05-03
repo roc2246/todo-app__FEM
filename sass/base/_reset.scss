@@ -1,4 +1,32 @@
 p {
-    font-size: .75rem;
-    font-weight: $font-weight-bolder;
+  font-size: 0.75rem;
+  font-weight: $font-weight-bolder;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: $color-dark-grayish-blue;
+  font-weight: $font-weight-bolder;
+}
+
+header {
+    background-image: url("/images/bg-desktop-light.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 10rem;
+  }
+
+  main{
+    @include centerAndWidth();
+    transform: translate(0, -5rem);
+}
+
+
+footer{
+    @include centerAndWidth();
+    aside{
+        text-align: center;
+    }
 }
