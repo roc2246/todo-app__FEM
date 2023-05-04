@@ -9,7 +9,7 @@ todosLeft.innerHTML = 0;
 
 function toggleEmptyMssg() {
   const empty = document.getElementsByClassName("todos__empty")[0];
-  if (todoList.length !== 0) {
+  if (todo.length !== 0) {
     empty.style.display = "none";
   } else {
     empty.style.display = "flex";
@@ -35,6 +35,7 @@ function assignDelete() {
       todosLeft.innerHTML = btnIndex.length;
       assignDelete();
       assignCompleted();
+      toggleEmptyMssg();
     };
   });
 }
@@ -56,8 +57,6 @@ function assignCompleted() {
 }
 
 function newToDo() {
-  // toggleEmptyMssg();
-
   const container = newElement("span");
   newClass(container, "todos__layout");
   newClass(container, "todos__list--item");
@@ -87,6 +86,8 @@ function newToDo() {
 
   btnIndex = [...btnIndex, btnIndex.length];
   todosLeft.innerHTML = btnIndex.length;
+  toggleEmptyMssg();
+
 }
 
 const form = document.getElementsByClassName("todos")[0];
@@ -100,7 +101,6 @@ todoInput.onkeydown = (e) => {
 
   assignDelete();
   assignCompleted();
-  // toggleEmptyMssg();
 };
 
 const circle = document.getElementsByClassName("todos__layout--circle");
