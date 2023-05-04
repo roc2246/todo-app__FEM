@@ -87,14 +87,13 @@ function newToDo() {
   btnIndex = [...btnIndex, btnIndex.length];
   todosLeft.innerHTML = btnIndex.length;
   toggleEmptyMssg();
-
 }
 
 const form = document.getElementsByClassName("todos")[0];
 
 todoInput.onkeydown = (e) => {
   if (e.key === "Enter") {
-    newToDo();
+    todoInput.value.trim().length === 0? alert("Please enter a todo") : newToDo();
     todoInput.value = "";
     todoInput.focus();
   }

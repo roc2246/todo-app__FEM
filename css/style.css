@@ -91,7 +91,7 @@ aside {
     .todos__layout--input {
       border: none;
       height: 2.5rem;
-      width: auto;
+      width: 100%;
       margin-left: .5rem; }
     .todos__layout--circle {
       margin-top: auto;
