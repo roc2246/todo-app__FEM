@@ -17,24 +17,6 @@ const newElement = (ele) => document.createElement(ele);
 const newClass = (ele, name) => ele.classList.add(name);
 const mod = (mod) => `todos__layout--${mod}`;
 
-function assignDelete2() {
-  const deleteBtn = document.getElementsByClassName("todos__layout--delete");
-  btnIndex.forEach((btn) => {
-    let btnNo = btnIndex[btn];
-    deleteBtn[btnNo].onclick = () => {
-      const lastBtnIndex = btnIndex.length - 1;
-      const firstBtnIndex = 0;
-      if (btnNo === undefined) btnNo = lastBtnIndex;
-      if (todo[btnNo] === undefined) btnNo = firstBtnIndex;
-
-      todo[btnNo].remove();
-      btnIndex.pop();
-      assignDelete();
-      assignCompleted();
-    };
-  });
-}
-
 function assignDelete() {
   const deleteBtn = document.getElementsByClassName("todos__layout--delete");
   btnIndex.forEach((btn) => {
@@ -47,7 +29,7 @@ function assignDelete() {
 
       todo[btnNo].remove();
       btnIndex.pop();
-      assignDelete2();
+      assignDelete();
       assignCompleted();
     };
   });
