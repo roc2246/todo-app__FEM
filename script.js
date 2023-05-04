@@ -115,7 +115,10 @@ const filterBtns = {
 
 filterBtns.clear.onclick = () => {
   btnIndex = [];
-  todoList.innerHTML = "";
+  const empty = document.getElementsByClassName("todos__empty")[0];
+  empty.style.display = "flex"
+  todoList.innerHTML = empty.outerHTML 
+
 };
 
 filterBtns.allMobile.onclick = () => {

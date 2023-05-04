@@ -121,6 +121,9 @@ aside {
   .todos__new {
     border-radius: 0.5rem;
     margin-bottom: 0.75rem; }
+  .todos__list--item:nth-child(2) {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem; }
 
 .todos__manage {
   display: flex;
