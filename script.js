@@ -121,8 +121,8 @@ const filterBtns = {
   clear: document.getElementsByClassName("filter--clear")[0],
   allMobile: document.getElementsByClassName("filter--all")[0],
   allDesktop: document.getElementsByClassName("filter--all")[1],
-  activeMobile: document.getElementsByClassName("filter--all")[0],
-  activeDesktop: document.getElementsByClassName("filter--all")[1],
+  activeMobile: document.getElementsByClassName("filter--active")[0],
+  activeDesktop: document.getElementsByClassName("filter--active")[1],
   completedMobile: document.getElementsByClassName("filter--completed")[0],
   completedDesktop: document.getElementsByClassName("filter--completed")[1],
 };
@@ -133,27 +133,56 @@ filterBtns.clear.onclick = () => {
 };
 
 filterBtns.allMobile.onclick = () => {
+  filterBtns.allMobile.style.color="blue"
   Object.keys(todo).forEach((no) => {
     todo[no].style.display = "flex";
   });
 };
 filterBtns.allDesktop.onclick = () => {
+  filterBtns.allDesktop.style.color="blue"
   Object.keys(todo).forEach((no) => {
     todo[no].style.display = "flex";
   });
 };
 
+filterBtns.activeMobile.onclick = () => {
+  filterBtns.allMobile.style.color="hsl(234, 11%, 52%)"
+  Object.keys(todo).forEach((no) => {
+    if (circle[no].classList.contains("completed")) {
+      todo[no].style.display = "none";
+    } else {
+      todo[no].style.display = "flex";
+    }
+  });
+};
+filterBtns.activeDesktop.onclick = () => {
+  filterBtns.allDesktop.style.color="hsl(234, 11%, 52%)"
+  Object.keys(todo).forEach((no) => {
+    if (circle[no].classList.contains("completed")) {
+      todo[no].style.display = "none";
+    } else {
+      todo[no].style.display = "flex";
+    }
+  });
+};
+
 filterBtns.completedMobile.onclick = () => {
+  filterBtns.allMobile.style.color="hsl(234, 11%, 52%)"
   Object.keys(todo).forEach((no) => {
     if (!circle[no].classList.contains("completed")) {
       todo[no].style.display = "none";
+    } else {
+      todo[no].style.display = "flex";
     }
   });
 };
 filterBtns.completedDesktop.onclick = () => {
+  filterBtns.allDesktop.style.color="hsl(234, 11%, 52%)"
   Object.keys(todo).forEach((no) => {
     if (!circle[no].classList.contains("completed")) {
       todo[no].style.display = "none";
+    } else {
+      todo[no].style.display = "flex";
     }
   });
 };

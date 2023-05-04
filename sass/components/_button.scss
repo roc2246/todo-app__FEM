@@ -32,4 +32,7 @@
   & > button:nth-child(1) {
     color: blue;
   }
+  & > button:focus{
+    color: blue;
+  }
 }
