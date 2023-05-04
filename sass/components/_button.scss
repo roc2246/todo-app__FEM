@@ -11,6 +11,11 @@
     }
 }
 
+.completed{
+    cursor: pointer;
+    background-color: red;
+}
+
 .filter-box-central {
 & >button:nth-child(1){
     color: blue;

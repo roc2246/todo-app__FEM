@@ -1,5 +1,4 @@
 let btnIndex = [];
-const deleteBtn = document.getElementsByClassName("todos__layout--delete");
 
 const todoList = document.getElementsByClassName("todos__list")[0];
 const todo = document.getElementsByClassName("todos__list--item");
@@ -19,6 +18,7 @@ const newClass = (ele, name) => ele.classList.add(name);
 const mod = (mod) => `todos__layout--${mod}`;
 
 function assignDelete() {
+  const deleteBtn = document.getElementsByClassName("todos__layout--delete");
   btnIndex.forEach((btn) => {
     let btnNo = btnIndex[btn];
     deleteBtn[btnNo].onclick = () => {
@@ -29,6 +29,24 @@ function assignDelete() {
 
       todo[btnNo].remove();
       btnIndex.pop();
+      assignCompleted()
+    };
+  });
+}
+
+function assignCompleted() {
+  const circle = document.querySelectorAll(
+    ".todos__layout--circle:not(.todos__new--circle"
+  );
+  btnIndex.forEach((btn) => {
+    let btnNo = btnIndex[btn];
+    circle[btnNo].onclick = () => {
+      if (!circle[btnNo].classList.contains("completed")) {
+        circle[btnNo].classList.add("completed");
+      } else {
+        circle[btnNo].classList.remove("completed");
+      }
+      console.log(btnNo);
     };
   });
 }
@@ -71,4 +89,6 @@ const form = document.getElementsByClassName("todos")[0];
 todoInput.onkeydown = (e) => {
   if (e.key === "Enter") newToDo();
   assignDelete();
+  assignCompleted();
+  toggleEmptyMssg();
 };

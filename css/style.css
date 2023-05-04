@@ -63,6 +63,10 @@ aside {
   width: .75rem;
   height: auto; }
 
+.completed {
+  cursor: pointer;
+  background-color: red; }
+
 .filter-box-central > button:nth-child(1) {
   color: blue; }
 
