@@ -53,15 +53,22 @@ footer {
 aside {
   font-weight: 700; }
 
+.todos__new--circle {
+  width: 1rem;
+  height: 1rem;
+  border: solid 1px;
+  border-radius: 50%;
+  margin-top: .75rem; }
+
+.todos__layout--delete-icon {
+  width: 0.75rem;
+  height: auto; }
+
 .todos__layout--circle {
   width: 1rem;
   height: 1rem;
   border: solid 1px;
   border-radius: 50%; }
-
-.todos__layout--delete-icon {
-  width: .75rem;
-  height: auto; }
 
 .completed {
   cursor: pointer;

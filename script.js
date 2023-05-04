@@ -17,7 +17,6 @@ const newElement = (ele) => document.createElement(ele);
 const newClass = (ele, name) => ele.classList.add(name);
 const mod = (mod) => `todos__layout--${mod}`;
 
-
 function assignDelete2() {
   const deleteBtn = document.getElementsByClassName("todos__layout--delete");
   btnIndex.forEach((btn) => {
@@ -30,8 +29,8 @@ function assignDelete2() {
 
       todo[btnNo].remove();
       btnIndex.pop();
-      assignDelete()
-      assignCompleted()
+      assignDelete();
+      assignCompleted();
     };
   });
 }
@@ -48,8 +47,8 @@ function assignDelete() {
 
       todo[btnNo].remove();
       btnIndex.pop();
-      assignDelete2()
-      assignCompleted()
+      assignDelete2();
+      assignCompleted();
     };
   });
 }
@@ -106,52 +105,55 @@ function newToDo() {
 const form = document.getElementsByClassName("todos")[0];
 
 todoInput.onkeydown = (e) => {
-  if (e.key === "Enter") newToDo();
-  todoInput.value = ""
-  todoInput.focus()
+  if (e.key === "Enter") {
+    newToDo();
+    todoInput.value = "";
+    todoInput.focus();
+  }
+
   assignDelete();
   assignCompleted();
   // toggleEmptyMssg();
 };
 
-const circle = document.getElementsByClassName("todos__layout--circle")
+const circle = document.getElementsByClassName("todos__layout--circle");
 const filterBtns = {
   clear: document.getElementsByClassName("filter--clear")[0],
   allMobile: document.getElementsByClassName("filter--all")[0],
-  allDesktop: document.getElementsByClassName("filter--all")[1],  
+  allDesktop: document.getElementsByClassName("filter--all")[1],
   activeMobile: document.getElementsByClassName("filter--all")[0],
   activeDesktop: document.getElementsByClassName("filter--all")[1],
   completedMobile: document.getElementsByClassName("filter--completed")[0],
-  completedDesktop: document.getElementsByClassName("filter--completed")[1]
-}
+  completedDesktop: document.getElementsByClassName("filter--completed")[1],
+};
 
 filterBtns.clear.onclick = () => {
-  btnIndex = []
-  todoList.innerHTML = ""
-}
+  btnIndex = [];
+  todoList.innerHTML = "";
+};
 
 filterBtns.allMobile.onclick = () => {
-  Object.keys(todo).forEach(no => {
-      todo[no].style.display = "flex"
-  })
-}
+  Object.keys(todo).forEach((no) => {
+    todo[no].style.display = "flex";
+  });
+};
 filterBtns.allDesktop.onclick = () => {
-  Object.keys(todo).forEach(no => {
-      todo[no].style.display = "flex"
-  })
-}
+  Object.keys(todo).forEach((no) => {
+    todo[no].style.display = "flex";
+  });
+};
 
-filterBtns.completedMobile.onclick =() => {
-  Object.keys(todo).forEach(no => {
-    if(!circle[no].classList.contains("completed")){
-      todo[no].style.display = "none"
-    } 
-  })
-}
-filterBtns.completedDesktop.onclick =() => {
-  Object.keys(todo).forEach(no => {
-    if(!circle[no].classList.contains("completed")){
-      todo[no].style.display = "none"
-    } 
-  })
-}
+filterBtns.completedMobile.onclick = () => {
+  Object.keys(todo).forEach((no) => {
+    if (!circle[no].classList.contains("completed")) {
+      todo[no].style.display = "none";
+    }
+  });
+};
+filterBtns.completedDesktop.onclick = () => {
+  Object.keys(todo).forEach((no) => {
+    if (!circle[no].classList.contains("completed")) {
+      todo[no].style.display = "none";
+    }
+  });
+};
