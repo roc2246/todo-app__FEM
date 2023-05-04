@@ -73,8 +73,14 @@ aside {
   border-radius: 50%; }
 
 .completed {
-  background-color: blue;
-  background-image: url("/images/icon-check.svg"); }
+  background-image: url("/images/icon-check.svg"), linear-gradient(#57ddff, #c058f3);
+  background-repeat: no-repeat, repeat;
+  background-size: 75%, 100%;
+  background-position-x: .1rem, 2rem;
+  background-position-y: .15rem, 2rem;
+  border: none;
+  width: calc(1rem + 1px);
+  height: calc(1rem + 1px); }
   .completed + P {
     text-decoration: line-through; }
 
