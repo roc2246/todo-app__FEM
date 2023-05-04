@@ -3,6 +3,9 @@ let btnIndex = [];
 const todoList = document.getElementsByClassName("todos__list")[0];
 const todo = document.getElementsByClassName("todos__list--item");
 const todoInput = document.getElementsByClassName("todos__layout--input")[0];
+let todosLeft = document.getElementById("todos-left");
+
+todosLeft.innerHTML = 0;
 
 function toggleEmptyMssg() {
   const empty = document.getElementsByClassName("todos__empty")[0];
@@ -29,6 +32,7 @@ function assignDelete() {
 
       todo[btnNo].remove();
       btnIndex.pop();
+      todosLeft.innerHTML = btnIndex.length;
       assignDelete();
       assignCompleted();
     };
@@ -82,6 +86,7 @@ function newToDo() {
   todoList.append(container);
 
   btnIndex = [...btnIndex, btnIndex.length];
+  todosLeft.innerHTML = btnIndex.length;
 }
 
 const form = document.getElementsByClassName("todos")[0];
@@ -115,20 +120,20 @@ filterBtns.clear.onclick = () => {
 };
 
 filterBtns.allMobile.onclick = () => {
-  filterBtns.allMobile.style.color="blue"
+  filterBtns.allMobile.style.color = "blue";
   Object.keys(todo).forEach((no) => {
     todo[no].style.display = "flex";
   });
 };
 filterBtns.allDesktop.onclick = () => {
-  filterBtns.allDesktop.style.color="blue"
+  filterBtns.allDesktop.style.color = "blue";
   Object.keys(todo).forEach((no) => {
     todo[no].style.display = "flex";
   });
 };
 
 filterBtns.activeMobile.onclick = () => {
-  filterBtns.allMobile.style.color="hsl(234, 11%, 52%)"
+  filterBtns.allMobile.style.color = "hsl(234, 11%, 52%)";
   Object.keys(todo).forEach((no) => {
     if (circle[no].classList.contains("completed")) {
       todo[no].style.display = "none";
@@ -138,7 +143,7 @@ filterBtns.activeMobile.onclick = () => {
   });
 };
 filterBtns.activeDesktop.onclick = () => {
-  filterBtns.allDesktop.style.color="hsl(234, 11%, 52%)"
+  filterBtns.allDesktop.style.color = "hsl(234, 11%, 52%)";
   Object.keys(todo).forEach((no) => {
     if (circle[no].classList.contains("completed")) {
       todo[no].style.display = "none";
@@ -149,7 +154,7 @@ filterBtns.activeDesktop.onclick = () => {
 };
 
 filterBtns.completedMobile.onclick = () => {
-  filterBtns.allMobile.style.color="hsl(234, 11%, 52%)"
+  filterBtns.allMobile.style.color = "hsl(234, 11%, 52%)";
   Object.keys(todo).forEach((no) => {
     if (!circle[no].classList.contains("completed")) {
       todo[no].style.display = "none";
@@ -159,7 +164,7 @@ filterBtns.completedMobile.onclick = () => {
   });
 };
 filterBtns.completedDesktop.onclick = () => {
-  filterBtns.allDesktop.style.color="hsl(234, 11%, 52%)"
+  filterBtns.allDesktop.style.color = "hsl(234, 11%, 52%)";
   Object.keys(todo).forEach((no) => {
     if (!circle[no].classList.contains("completed")) {
       todo[no].style.display = "none";
