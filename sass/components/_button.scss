@@ -1,12 +1,13 @@
 .todos {
   &__new {
     &--circle {
-        width: 1rem;
-        height: 1rem;
-        border: solid 1px;
-        border-radius: 50%;
-        margin-top: .75rem;
-      }
+      cursor: pointer;
+      width: 1rem;
+      height: 1rem;
+      border: solid 1px;
+      border-radius: 50%;
+      margin-top: 0.75rem;
+    }
   }
 
   &__layout {
@@ -15,24 +16,28 @@
       height: auto;
     }
     &--circle {
-        width: 1rem;
-        height: 1rem;
-        border: solid 1px;
-        border-radius: 50%;
-      }
+      cursor: pointer;
+      width: 1rem;
+      height: 1rem;
+      border: solid 1px;
+      border-radius: 50%;
+    }
   }
 }
 
 .completed {
-  cursor: pointer;
-  background-color: red;
+  background-color: blue;
+  background-image: url("/images/icon-check.svg");
+  & + P {
+    text-decoration: line-through;
+  }
 }
 
 .filter-box-central {
   & > button:nth-child(1) {
     color: blue;
   }
-  & > button:focus{
+  & > button:focus {
     color: blue;
   }
 }
