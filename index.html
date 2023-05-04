@@ -32,9 +32,9 @@
     </header>
 
     <main>
-      <form method="POST" class="todos">
+      <section class="todos">
         <span class="todos__layout todos__new">
-          <button class="todos__layout--circle">&nbsp;</button>
+          <div class="todos__layout--circle">&nbsp;</div>
 
           <input
             type="text"
@@ -46,7 +46,7 @@
         </span>
 
         <div class="todos__list">
-          <span class="todos__layout todos__list--item todos__list--completed">
+          <!-- <span class="todos__layout todos__list--item todos__list--completed">
             <button class="todos__layout--circle">&nbsp;</button>
 
             <p class="todos__layout--text">
@@ -104,6 +104,9 @@
                 class="todos__layout--delete-icon"
               />
             </button>
+          </span> -->
+          <span class="todos__layout todos__empty">
+            <p class="todos__empty--text">No todos left</p>
           </span>
         </div>
 
@@ -126,7 +129,7 @@
           <button class="filter filter--active">Active</button>
           <button class="filter filter--completed">Completed</button>
         </div>
-      </form>
+      </section>
     </main>
 
     <footer><p>Drag and drop to reorder list</p></footer>
