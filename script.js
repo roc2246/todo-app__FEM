@@ -130,22 +130,23 @@ const filterBtns = {
       containers.todo[no].style.display = "flex";
     });
   },
-};
-function clearCompleted () {
-  btnIndex.forEach((no) => {
+  clearCompleted: function (){
+     btnIndex.forEach((no) => {
     let btnNo = btnIndex[no];
     if (containers.circle[btnNo].classList.contains("completed")) {
       containers.todo[btnNo].remove();
       btnIndex.pop();
       containers.assignCompleted()
       containers.assignDelete()
-      clearCompleted()
+      filterBtns.clearCompleted()
     }
   });
-}
+  }
+};
+
 
 filterBtns.clear.onclick = () => {
-  clearCompleted()
+  filterBtns.clearCompleted()
   containers.toggleEmpty()
   toDoTracker.setTodos(containers.todo.length)
 };
