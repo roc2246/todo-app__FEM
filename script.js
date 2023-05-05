@@ -131,12 +131,23 @@ const filterBtns = {
     });
   },
 };
+function clearCompleted () {
+  btnIndex.forEach((no) => {
+    let btnNo = btnIndex[no];
+    if (containers.circle[btnNo].classList.contains("completed")) {
+      containers.todo[btnNo].remove();
+      btnIndex.pop();
+      containers.assignCompleted()
+      containers.assignDelete()
+      clearCompleted()
+    }
+  });
+}
 
 filterBtns.clear.onclick = () => {
-  btnIndex = [];
-  containers.empty.style.display = "flex";
-  containers.todoList.innerHTML = containers.empty.outerHTML;
-  toDoTracker.setTodos(0);
+  clearCompleted()
+  containers.toggleEmpty()
+  toDoTracker.setTodos(containers.todo.length)
 };
 
 filterBtns.mobile.all.onclick = () => {
