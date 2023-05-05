@@ -1,60 +1,62 @@
 let btnIndex = [];
 
-const todoList = document.getElementsByClassName("todos__list")[0];
-const todo = document.getElementsByClassName("todos__list--item");
-const todoInput = document.getElementsByClassName("todos__layout--input")[0];
-let todosLeft = document.getElementById("todos-left");
+let toDoTracker = {
+  todosLeft: document.getElementById("todos-left"),
+  setTodos: function (amt) {
+    this.todosLeft.innerHTML = amt;
+  },
+};
+toDoTracker.setTodos(0);
 
-todosLeft.innerHTML = 0;
+const containers = {
+  todoInput: document.getElementsByClassName("todos__layout--input")[0],
+  todoList: document.getElementsByClassName("todos__list")[0],
+  todo: document.getElementsByClassName("todos__list--item"),
+  empty: document.getElementsByClassName("todos__empty")[0],
+  toggleEmpty: function () {
+    if (this.todo.length !== 0) {
+      this.empty.style.display = "none";
+    } else {
+      this.empty.style.display = "flex";
+    }
+  },
+  deleteBtn: document.getElementsByClassName("todos__layout--delete"),
+  assignDelete: function () {
+    btnIndex.forEach((btn) => {
+      let btnNo = btnIndex[btn];
+      this.deleteBtn[btnNo].onclick = () => {
+        if (btnNo === undefined) btnNo = btnIndex.length - 1;
+        if (this.todo[btnNo] === undefined) btnNo = 0;
 
-function toggleEmptyMssg() {
-  const empty = document.getElementsByClassName("todos__empty")[0];
-  if (todo.length !== 0) {
-    empty.style.display = "none";
-  } else {
-    empty.style.display = "flex";
-  }
-}
+        this.todo[btnNo].remove();
+        btnIndex.pop();
+
+        this.toggleEmpty();
+        this.assignDelete();
+        this.assignCompleted();
+
+        toDoTracker.setTodos(btnIndex.length);
+      };
+    });
+  },
+  circle: document.getElementsByClassName("todos__layout--circle"),
+  assignCompleted: function () {
+    btnIndex.forEach((btn) => {
+      let btnNo = btnIndex[btn];
+      this.circle[btnNo].onclick = () => {
+        if (!this.circle[btnNo].classList.contains("completed")) {
+          this.circle[btnNo].classList.add("completed");
+        } else {
+          this.circle[btnNo].classList.remove("completed");
+        }
+      };
+    });
+  },
+};
 
 const newElement = (ele) => document.createElement(ele);
 const newClass = (ele, name) => ele.classList.add(name);
 const mod = (mod) => `todos__layout--${mod}`;
-
-function assignDelete() {
-  const deleteBtn = document.getElementsByClassName("todos__layout--delete");
-  btnIndex.forEach((btn) => {
-    let btnNo = btnIndex[btn];
-    deleteBtn[btnNo].onclick = () => {
-      const lastBtnIndex = btnIndex.length - 1;
-      const firstBtnIndex = 0;
-      if (btnNo === undefined) btnNo = lastBtnIndex;
-      if (todo[btnNo] === undefined) btnNo = firstBtnIndex;
-
-      todo[btnNo].remove();
-      btnIndex.pop();
-      todosLeft.innerHTML = btnIndex.length;
-      assignDelete();
-      assignCompleted();
-      toggleEmptyMssg();
-    };
-  });
-}
-
-function assignCompleted() {
-  const circle = document.querySelectorAll(
-    ".todos__layout--circle:not(.todos__new--circle"
-  );
-  btnIndex.forEach((btn) => {
-    let btnNo = btnIndex[btn];
-    circle[btnNo].onclick = () => {
-      if (!circle[btnNo].classList.contains("completed")) {
-        circle[btnNo].classList.add("completed");
-      } else {
-        circle[btnNo].classList.remove("completed");
-      }
-    };
-  });
-}
 
 function newToDo() {
   const container = newElement("span");
@@ -66,7 +68,7 @@ function newToDo() {
 
   const text = newElement("p");
   newClass(text, mod("text"));
-  text.innerText = todoInput.value;
+  text.innerText = containers.todoInput.value;
 
   const deleteBtn = newElement("button");
   newClass(deleteBtn, "btn");
@@ -82,96 +84,84 @@ function newToDo() {
   container.append(text);
   container.append(deleteBtn);
 
-  todoList.append(container);
+  containers.todoList.append(container);
 
   btnIndex = [...btnIndex, btnIndex.length];
-  todosLeft.innerHTML = btnIndex.length;
-  toggleEmptyMssg();
+  toDoTracker.setTodos(btnIndex.length);
+  containers.toggleEmpty();
 }
 
-const form = document.getElementsByClassName("todos")[0];
-
-todoInput.onkeydown = (e) => {
+containers.todoInput.onkeydown = (e) => {
   if (e.key === "Enter") {
-    todoInput.value.trim().length === 0? alert("Please enter a todo") : newToDo();
-    todoInput.value = "";
-    todoInput.focus();
+    containers.todoInput.value.trim().length === 0
+      ? alert("Please enter a todo")
+      : newToDo();
+    containers.todoInput.value = "";
+    containers.todoInput.focus();
   }
 
-  assignDelete();
-  assignCompleted();
+  containers.assignDelete();
+  containers.assignCompleted();
 };
 
-const circle = document.getElementsByClassName("todos__layout--circle");
 const filterBtns = {
   clear: document.getElementsByClassName("filter--clear")[0],
-  allMobile: document.getElementsByClassName("filter--all")[0],
-  allDesktop: document.getElementsByClassName("filter--all")[1],
-  activeMobile: document.getElementsByClassName("filter--active")[0],
-  activeDesktop: document.getElementsByClassName("filter--active")[1],
-  completedMobile: document.getElementsByClassName("filter--completed")[0],
-  completedDesktop: document.getElementsByClassName("filter--completed")[1],
+  mobile: {
+    all: document.getElementsByClassName("filter--all")[0],
+    active: document.getElementsByClassName("filter--active")[0],
+    completed: document.getElementsByClassName("filter--completed")[0],
+  },
+  desktop: {
+    all: document.getElementsByClassName("filter--all")[1],
+    active: document.getElementsByClassName("filter--active")[1],
+    completed: document.getElementsByClassName("filter--completed")[1],
+  },
+  setFilter: function (completed, active) {
+    Object.keys(containers.todo).forEach((no) => {
+      if (containers.circle[no].classList.contains("completed")) {
+        containers.todo[no].style.display = completed;
+      } else {
+        containers.todo[no].style.display = active;
+      }
+    });
+  },
+  removeFilters: function () {
+    Object.keys(containers.todo).forEach((no) => {
+      containers.todo[no].style.display = "flex";
+    });
+  },
 };
 
 filterBtns.clear.onclick = () => {
   btnIndex = [];
-  const empty = document.getElementsByClassName("todos__empty")[0];
-  empty.style.display = "flex"
-  todoList.innerHTML = empty.outerHTML 
-
+  containers.empty.style.display = "flex";
+  containers.todoList.innerHTML = containers.empty.outerHTML;
+  toDoTracker.setTodos(0);
 };
 
-filterBtns.allMobile.onclick = () => {
-  filterBtns.allMobile.style.color = "blue";
-  Object.keys(todo).forEach((no) => {
-    todo[no].style.display = "flex";
-  });
+filterBtns.mobile.all.onclick = () => {
+  filterBtns.mobile.all.style.color = "blue";
+  filterBtns.removeFilters();
 };
-filterBtns.allDesktop.onclick = () => {
-  filterBtns.allDesktop.style.color = "blue";
-  Object.keys(todo).forEach((no) => {
-    todo[no].style.display = "flex";
-  });
+filterBtns.desktop.all.onclick = () => {
+  filterBtns.desktop.all.style.color = "blue";
+  filterBtns.removeFilters();
 };
 
-filterBtns.activeMobile.onclick = () => {
-  filterBtns.allMobile.style.color = "hsl(234, 11%, 52%)";
-  Object.keys(todo).forEach((no) => {
-    if (circle[no].classList.contains("completed")) {
-      todo[no].style.display = "none";
-    } else {
-      todo[no].style.display = "flex";
-    }
-  });
+filterBtns.mobile.active.onclick = () => {
+  filterBtns.mobile.all.style.color = "hsl(234, 11%, 52%)";
+  filterBtns.setFilter("none", "flex");
 };
-filterBtns.activeDesktop.onclick = () => {
-  filterBtns.allDesktop.style.color = "hsl(234, 11%, 52%)";
-  Object.keys(todo).forEach((no) => {
-    if (circle[no].classList.contains("completed")) {
-      todo[no].style.display = "none";
-    } else {
-      todo[no].style.display = "flex";
-    }
-  });
+filterBtns.desktop.active.onclick = () => {
+  filterBtns.desktop.all.style.color = "hsl(234, 11%, 52%)";
+  filterBtns.setFilter("none", "flex");
 };
 
-filterBtns.completedMobile.onclick = () => {
-  filterBtns.allMobile.style.color = "hsl(234, 11%, 52%)";
-  Object.keys(todo).forEach((no) => {
-    if (!circle[no].classList.contains("completed")) {
-      todo[no].style.display = "none";
-    } else {
-      todo[no].style.display = "flex";
-    }
-  });
+filterBtns.mobile.completed.onclick = () => {
+  filterBtns.mobile.all.style.color = "hsl(234, 11%, 52%)";
+  filterBtns.setFilter("flex", "none");
 };
-filterBtns.completedDesktop.onclick = () => {
-  filterBtns.allDesktop.style.color = "hsl(234, 11%, 52%)";
-  Object.keys(todo).forEach((no) => {
-    if (!circle[no].classList.contains("completed")) {
-      todo[no].style.display = "none";
-    } else {
-      todo[no].style.display = "flex";
-    }
-  });
+filterBtns.desktop.completed.onclick = () => {
+  filterBtns.desktop.all.style.color = "hsl(234, 11%, 52%)";
+  filterBtns.setFilter("flex", "none");
 };
