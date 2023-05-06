@@ -53,12 +53,12 @@ const containers = {
 
         if (filterMode === "active") {
           filterBtns.setFilter("none", "flex");
-          filterBtns.desktop.all.style.color = "hsl(234, 11%, 52%)";
-          filterBtns.mobile.all.style.color = "hsl(234, 11%, 52%)";
+          filterBtns.desktop.all.style.color = filterBtns.stateColor.inactive;
+          filterBtns.mobile.all.style.color = filterBtns.stateColor.inactive;
         } else if (filterMode === "completed") {
           filterBtns.setFilter("flex", "none");
-          filterBtns.desktop.all.style.color = "hsl(234, 11%, 52%)";
-          filterBtns.mobile.all.style.color = "hsl(234, 11%, 52%)";
+          filterBtns.desktop.all.style.color = filterBtns.stateColor.inactive;
+          filterBtns.mobile.all.style.color = filterBtns.stateColor.inactive;
         }
       };
     });
@@ -103,6 +103,10 @@ function newToDo() {
 }
 
 const filterBtns = {
+  stateColor : {
+    inactive: "hsl(234, 11%, 52%)",
+    active: "blue"
+  },
   clear: document.getElementsByClassName("filter--clear")[0],
   mobile: {
     all: document.getElementsByClassName("filter--all")[0],
@@ -153,89 +157,91 @@ filterBtns.clear.onclick = () => {
 };
 
 filterBtns.mobile.all.onclick = () => {
-  filterBtns.desktop.all.style.color = "blue";
-  filterBtns.desktop.completed.style.color = "hsl(234, 11%, 52%)";
-  filterBtns.desktop.active.style.color = "hsl(234, 11%, 52%)";
+  filterBtns.desktop.all.style.color = filterBtns.stateColor.active;
+  filterBtns.desktop.completed.style.color = filterBtns.stateColor.inactive;
+  filterBtns.desktop.active.style.color = filterBtns.stateColor.inactive;
 
-  filterBtns.mobile.all.style.color = "blue";
-  filterBtns.mobile.completed.style.color = "hsl(234, 11%, 52%)";
-  filterBtns.mobile.active.style.color = "hsl(234, 11%, 52%)";
+  filterBtns.mobile.all.style.color = filterBtns.stateColor.active;
+  filterBtns.mobile.completed.style.color = filterBtns.stateColor.inactive;
+  filterBtns.mobile.active.style.color = filterBtns.stateColor.inactive;
 
   filterBtns.removeFilters();
   filterMode = "all";
 };
 filterBtns.desktop.all.onclick = () => {
-  filterBtns.desktop.all.style.color = "blue";
-  filterBtns.desktop.completed.style.color = "hsl(234, 11%, 52%)";
-  filterBtns.desktop.active.style.color = "hsl(234, 11%, 52%)";
+  filterBtns.desktop.all.style.color = filterBtns.stateColor.active;
+  filterBtns.desktop.completed.style.color = filterBtns.stateColor.inactive;
+  filterBtns.desktop.active.style.color = filterBtns.stateColor.inactive;
 
-  filterBtns.mobile.all.style.color = "blue";
-  filterBtns.mobile.completed.style.color = "hsl(234, 11%, 52%)";
-  filterBtns.mobile.active.style.color = "hsl(234, 11%, 52%)";
+  filterBtns.mobile.all.style.color = filterBtns.stateColor.active;
+  filterBtns.mobile.completed.style.color = filterBtns.stateColor.inactive;
+  filterBtns.mobile.active.style.color = filterBtns.stateColor.inactive;
 
   filterBtns.removeFilters();
   filterMode = "all";
 };
 
 filterBtns.mobile.active.onclick = () => {
-  filterBtns.desktop.all.style.color = "hsl(234, 11%, 52%)";
-  filterBtns.desktop.completed.style.color = "hsl(234, 11%, 52%)";
-  filterBtns.desktop.active.style.color = "blue";
+  filterBtns.desktop.all.style.color = filterBtns.stateColor.inactive;
+  filterBtns.desktop.completed.style.color = filterBtns.stateColor.inactive;
+  filterBtns.desktop.active.style.color = filterBtns.stateColor.active;
 
-  filterBtns.mobile.all.style.color = "hsl(234, 11%, 52%)";
-  filterBtns.mobile.completed.style.color = "hsl(234, 11%, 52%)";
-  filterBtns.mobile.active.style.color = "blue";
+  filterBtns.mobile.all.style.color = filterBtns.stateColor.inactive;
+  filterBtns.mobile.completed.style.color = filterBtns.stateColor.inactive;
+  filterBtns.mobile.active.style.color = filterBtns.stateColor.active;
 
   filterBtns.setFilter("none", "flex");
   filterMode = "active";
 };
 filterBtns.desktop.active.onclick = () => {
-  filterBtns.desktop.all.style.color = "hsl(234, 11%, 52%)";
-  filterBtns.desktop.completed.style.color = "hsl(234, 11%, 52%)";
-  filterBtns.desktop.active.style.color = "blue";
+  filterBtns.desktop.all.style.color = filterBtns.stateColor.inactive;
+  filterBtns.desktop.completed.style.color = filterBtns.stateColor.inactive;
+  filterBtns.desktop.active.style.color = filterBtns.stateColor.active;
 
-  filterBtns.mobile.all.style.color = "hsl(234, 11%, 52%)";
-  filterBtns.mobile.completed.style.color = "hsl(234, 11%, 52%)";
-  filterBtns.mobile.active.style.color = "blue";
+  filterBtns.mobile.all.style.color = filterBtns.stateColor.inactive;
+  filterBtns.mobile.completed.style.color = filterBtns.stateColor.inactive;
+  filterBtns.mobile.active.style.color = filterBtns.stateColor.active;
 
   filterBtns.setFilter("none", "flex");
   filterMode = "active";
 };
 
 filterBtns.mobile.completed.onclick = () => {
-  filterBtns.desktop.all.style.color = "hsl(234, 11%, 52%)";
-  filterBtns.desktop.completed.style.color = "blue";
-  filterBtns.desktop.active.style.color = "hsl(234, 11%, 52%)";
+  filterBtns.desktop.all.style.color = filterBtns.stateColor.inactive;
+  filterBtns.desktop.completed.style.color = filterBtns.stateColor.active;
+  filterBtns.desktop.active.style.color = filterBtns.stateColor.inactive;
 
-  filterBtns.mobile.all.style.color = "hsl(234, 11%, 52%)";
-  filterBtns.mobile.completed.style.color = "blue";
-  filterBtns.mobile.active.style.color = "hsl(234, 11%, 52%)";
+  filterBtns.mobile.all.style.color = filterBtns.stateColor.inactive;
+  filterBtns.mobile.completed.style.color = filterBtns.stateColor.active;
+  filterBtns.mobile.active.style.color = filterBtns.stateColor.inactive;
   
   filterBtns.setFilter("flex", "none");
   filterMode = "completed";
 };
 filterBtns.desktop.completed.onclick = () => {
-  filterBtns.desktop.all.style.color = "hsl(234, 11%, 52%)";
-  filterBtns.desktop.completed.style.color = "blue";
-  filterBtns.desktop.active.style.color = "hsl(234, 11%, 52%)";
+  filterBtns.desktop.all.style.color = filterBtns.stateColor.inactive;
+  filterBtns.desktop.completed.style.color = filterBtns.stateColor.active;
+  filterBtns.desktop.active.style.color = filterBtns.stateColor.inactive;
 
-  filterBtns.mobile.all.style.color = "hsl(234, 11%, 52%)";
-  filterBtns.mobile.completed.style.color = "blue";
-  filterBtns.mobile.active.style.color = "hsl(234, 11%, 52%)";
+  filterBtns.mobile.all.style.color = filterBtns.stateColor.inactive;
+  filterBtns.mobile.completed.style.color = filterBtns.stateColor.active;
+  filterBtns.mobile.active.style.color = filterBtns.stateColor.inactive;
 
   filterBtns.setFilter("flex", "none");
   filterMode = "completed";
 };
 
 containers.todoInput.onfocus = () => {
-  filterBtns.removeFilters();
-  filterBtns.desktop.all.style.color = "blue";
-  filterBtns.desktop.completed.style.color = "hsl(234, 11%, 52%)";
-  filterBtns.desktop.active.style.color = "hsl(234, 11%, 52%)";
+  filterBtns.desktop.all.style.color = filterBtns.stateColor.active;
+  filterBtns.desktop.completed.style.color = filterBtns.stateColor.inactive;
+  filterBtns.desktop.active.style.color = filterBtns.stateColor.inactive;
 
-  filterBtns.mobile.all.style.color = "blue";
-  filterBtns.mobile.completed.style.color = "hsl(234, 11%, 52%)";
-  filterBtns.mobile.active.style.color = "hsl(234, 11%, 52%)";
+  filterBtns.mobile.all.style.color = filterBtns.stateColor.active;
+  filterBtns.mobile.completed.style.color = filterBtns.stateColor.inactive;
+  filterBtns.mobile.active.style.color = filterBtns.stateColor.inactive;
+
+  filterBtns.removeFilters();
+  filterMode = "all";
 }
 
 containers.todoInput.onkeydown = (e) => {
