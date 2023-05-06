@@ -51,7 +51,15 @@ const containers = {
           this.circle[btnNo].classList.remove("completed");
         }
 
-        filterBtns.setFocus();
+        if (filterMode === "active") {
+          filterBtns.setFilter("none", "flex");
+          filterBtns.desktop.all.style.color = "hsl(234, 11%, 52%)";
+          filterBtns.mobile.all.style.color = "hsl(234, 11%, 52%)";
+        } else if (filterMode === "completed") {
+          filterBtns.setFilter("flex", "none");
+          filterBtns.desktop.all.style.color = "hsl(234, 11%, 52%)";
+          filterBtns.mobile.all.style.color = "hsl(234, 11%, 52%)";
+        }
       };
     });
   },
@@ -119,21 +127,6 @@ const filterBtns = {
       }
     });
   },
-  setFocus: function () {
-    if (filterMode === "active") {
-      this.setFilter("none", "flex");
-      this.desktop.active.focus();
-      this.mobile.active.focus();
-      this.desktop.all.style.color = "hsl(234, 11%, 52%)";
-      this.mobile.all.style.color = "hsl(234, 11%, 52%)";
-    } else if (filterMode === "completed") {
-      this.setFilter("flex", "none");
-      this.desktop.completed.focus();
-      this.mobile.completed.focus();
-      this.desktop.all.style.color = "hsl(234, 11%, 52%)";
-      this.mobile.all.style.color = "hsl(234, 11%, 52%)";
-    }
-  },
   removeFilters: function () {
     Object.keys(containers.todo).forEach((no) => {
       containers.todo[no].style.display = "flex";
@@ -148,7 +141,6 @@ const filterBtns = {
         containers.assignCompleted();
         containers.assignDelete();
         this.clearCompleted();
-        this.setFocus();
       }
     });
   },
@@ -158,7 +150,6 @@ filterBtns.clear.onclick = () => {
   filterBtns.clearCompleted();
   containers.toggleEmpty();
   toDoTracker.setTodos(containers.todo.length);
-  filterBtns.setFocus();
 };
 
 filterBtns.mobile.all.onclick = () => {
