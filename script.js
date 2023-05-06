@@ -218,7 +218,6 @@ containers.todoInput.onkeydown = (e) => {
       ? alert("Please enter a todo")
       : newToDo();
     containers.todoInput.value = "";
-    containers.todoInput.focus();
 
 
     if (filterMode === "active") {
@@ -234,6 +233,7 @@ containers.todoInput.onkeydown = (e) => {
       filterBtns.desktop.all.style.color = "hsl(234, 11%, 52%)";
       filterBtns.mobile.all.style.color = "hsl(234, 11%, 52%)";
     }
+    containers.todoInput.focus();
 
   }
 
