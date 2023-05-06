@@ -164,6 +164,19 @@ filterBtns.clear.onclick = () => {
   filterBtns.clearCompleted();
   containers.toggleEmpty();
   toDoTracker.setTodos(containers.todo.length);
+  if (filterMode === "active") {
+    filterBtns.setFilter("none", "flex");
+    filterBtns.desktop.active.focus();
+    filterBtns.mobile.active.focus();
+    filterBtns.desktop.all.style.color = "hsl(234, 11%, 52%)";
+    filterBtns.mobile.all.style.color = "hsl(234, 11%, 52%)";
+  } else if (filterMode === "completed") {
+    filterBtns.setFilter("flex", "none");
+    filterBtns.desktop.completed.focus();
+    filterBtns.mobile.completed.focus();
+    filterBtns.desktop.all.style.color = "hsl(234, 11%, 52%)";
+    filterBtns.mobile.all.style.color = "hsl(234, 11%, 52%)";
+  }
 };
 
 filterBtns.mobile.all.onclick = () => {
@@ -206,6 +219,22 @@ containers.todoInput.onkeydown = (e) => {
       : newToDo();
     containers.todoInput.value = "";
     containers.todoInput.focus();
+
+
+    if (filterMode === "active") {
+      filterBtns.setFilter("none", "flex");
+      filterBtns.desktop.active.focus();
+      filterBtns.mobile.active.focus();
+      filterBtns.desktop.all.style.color = "hsl(234, 11%, 52%)";
+      filterBtns.mobile.all.style.color = "hsl(234, 11%, 52%)";
+    } else if (filterMode === "completed") {
+      filterBtns.setFilter("flex", "none");
+      filterBtns.desktop.completed.focus();
+      filterBtns.mobile.completed.focus();
+      filterBtns.desktop.all.style.color = "hsl(234, 11%, 52%)";
+      filterBtns.mobile.all.style.color = "hsl(234, 11%, 52%)";
+    }
+
   }
 
   containers.assignDelete();
@@ -218,4 +247,5 @@ containers.todoInput.onkeydown = (e) => {
   } else if (filterMode === "all") {
     filterBtns.removeFilters();
   }
+  
 };
