@@ -207,12 +207,4 @@ containers.todoInput.onkeydown = (e) => {
 
   containers.assignDelete();
   containers.assignCompleted();
-
-  if (filterMode === "completed") {
-    filterBtns.setFilter("flex", "none");
-  } else if (filterMode === "active") {
-    filterBtns.setFilter("none", "flex");
-  } else if (filterMode === "all") {
-    filterBtns.removeFilters();
-  }
 };
