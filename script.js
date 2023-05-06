@@ -166,16 +166,13 @@ const filterBtns = {
         filterBtns.setFilter("flex", "none");
       }
     }
-    this.mobile[filterCat].onclick = () => {
+    function setOnCliCK () {
       state();
       sortToDo();
       filterMode = filterCat;
-    };
-    this.desktop[filterCat].onclick = () => {
-      state();
-      sortToDo();
-      filterMode = filterCat;
-    };
+    }
+    this.mobile[filterCat].onclick = () => setOnCliCK();
+    this.desktop[filterCat].onclick = () => setOnCliCK();
   },
   removeFilters: function () {
     Object.keys(containers.todo).forEach((no) => {
