@@ -34,12 +34,6 @@ $border-radius: 0.5rem;
     &--delete{
       margin-left: auto;
     }
-
-    &:nth-child(1) {
-      border-top-left-radius: $border-radius;
-      border-top-right-radius: $border-radius;
-    }
-
   }
 
   &__new {
