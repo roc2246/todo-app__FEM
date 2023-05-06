@@ -105,6 +105,15 @@ const filterBtns = {
     inactive: "hsl(234, 11%, 52%)",
     active: "blue",
   },
+  setStateColor: function (all, completed, active) {
+    this.desktop.all.style.color = all;
+    this.desktop.completed.style.color = completed;
+    this.desktop.active.style.color = active;
+
+    this.mobile.all.style.color = all;
+    this.mobile.completed.style.color = completed;
+    this.mobile.active.style.color = active;
+  },
   clear: document.getElementsByClassName("filter--clear")[0],
   mobile: {
     all: document.getElementsByClassName("filter--all")[0],
@@ -155,88 +164,74 @@ filterBtns.clear.onclick = () => {
 };
 
 filterBtns.mobile.all.onclick = () => {
-  filterBtns.desktop.all.style.color = filterBtns.stateColor.active;
-  filterBtns.desktop.completed.style.color = filterBtns.stateColor.inactive;
-  filterBtns.desktop.active.style.color = filterBtns.stateColor.inactive;
-
-  filterBtns.mobile.all.style.color = filterBtns.stateColor.active;
-  filterBtns.mobile.completed.style.color = filterBtns.stateColor.inactive;
-  filterBtns.mobile.active.style.color = filterBtns.stateColor.inactive;
+  filterBtns.setStateColor(
+    filterBtns.stateColor.active,
+    filterBtns.stateColor.inactive,
+    filterBtns.stateColor.inactive
+  );
 
   filterBtns.removeFilters();
   filterMode = "all";
 };
 filterBtns.desktop.all.onclick = () => {
-  filterBtns.desktop.all.style.color = filterBtns.stateColor.active;
-  filterBtns.desktop.completed.style.color = filterBtns.stateColor.inactive;
-  filterBtns.desktop.active.style.color = filterBtns.stateColor.inactive;
-
-  filterBtns.mobile.all.style.color = filterBtns.stateColor.active;
-  filterBtns.mobile.completed.style.color = filterBtns.stateColor.inactive;
-  filterBtns.mobile.active.style.color = filterBtns.stateColor.inactive;
+  filterBtns.setStateColor(
+    filterBtns.stateColor.active,
+    filterBtns.stateColor.inactive,
+    filterBtns.stateColor.inactive
+  );
 
   filterBtns.removeFilters();
   filterMode = "all";
 };
 
 filterBtns.mobile.active.onclick = () => {
-  filterBtns.desktop.all.style.color = filterBtns.stateColor.inactive;
-  filterBtns.desktop.completed.style.color = filterBtns.stateColor.inactive;
-  filterBtns.desktop.active.style.color = filterBtns.stateColor.active;
-
-  filterBtns.mobile.all.style.color = filterBtns.stateColor.inactive;
-  filterBtns.mobile.completed.style.color = filterBtns.stateColor.inactive;
-  filterBtns.mobile.active.style.color = filterBtns.stateColor.active;
+  filterBtns.setStateColor(
+    filterBtns.stateColor.inactive,
+    filterBtns.stateColor.inactive,
+    filterBtns.stateColor.active
+  );
 
   filterBtns.setFilter("none", "flex");
   filterMode = "active";
 };
 filterBtns.desktop.active.onclick = () => {
-  filterBtns.desktop.all.style.color = filterBtns.stateColor.inactive;
-  filterBtns.desktop.completed.style.color = filterBtns.stateColor.inactive;
-  filterBtns.desktop.active.style.color = filterBtns.stateColor.active;
-
-  filterBtns.mobile.all.style.color = filterBtns.stateColor.inactive;
-  filterBtns.mobile.completed.style.color = filterBtns.stateColor.inactive;
-  filterBtns.mobile.active.style.color = filterBtns.stateColor.active;
+  filterBtns.setStateColor(
+    filterBtns.stateColor.inactive,
+    filterBtns.stateColor.inactive,
+    filterBtns.stateColor.active
+  );
 
   filterBtns.setFilter("none", "flex");
   filterMode = "active";
 };
 
 filterBtns.mobile.completed.onclick = () => {
-  filterBtns.desktop.all.style.color = filterBtns.stateColor.inactive;
-  filterBtns.desktop.completed.style.color = filterBtns.stateColor.active;
-  filterBtns.desktop.active.style.color = filterBtns.stateColor.inactive;
-
-  filterBtns.mobile.all.style.color = filterBtns.stateColor.inactive;
-  filterBtns.mobile.completed.style.color = filterBtns.stateColor.active;
-  filterBtns.mobile.active.style.color = filterBtns.stateColor.inactive;
+  filterBtns.setStateColor(
+    filterBtns.stateColor.inactive,
+    filterBtns.stateColor.active,
+    filterBtns.stateColor.inactive
+  );
 
   filterBtns.setFilter("flex", "none");
   filterMode = "completed";
 };
 filterBtns.desktop.completed.onclick = () => {
-  filterBtns.desktop.all.style.color = filterBtns.stateColor.inactive;
-  filterBtns.desktop.completed.style.color = filterBtns.stateColor.active;
-  filterBtns.desktop.active.style.color = filterBtns.stateColor.inactive;
-
-  filterBtns.mobile.all.style.color = filterBtns.stateColor.inactive;
-  filterBtns.mobile.completed.style.color = filterBtns.stateColor.active;
-  filterBtns.mobile.active.style.color = filterBtns.stateColor.inactive;
+  filterBtns.setStateColor(
+    filterBtns.stateColor.inactive,
+    filterBtns.stateColor.active,
+    filterBtns.stateColor.inactive
+  );
 
   filterBtns.setFilter("flex", "none");
   filterMode = "completed";
 };
 
 containers.todoInput.onfocus = () => {
-  filterBtns.desktop.all.style.color = filterBtns.stateColor.active;
-  filterBtns.desktop.completed.style.color = filterBtns.stateColor.inactive;
-  filterBtns.desktop.active.style.color = filterBtns.stateColor.inactive;
-
-  filterBtns.mobile.all.style.color = filterBtns.stateColor.active;
-  filterBtns.mobile.completed.style.color = filterBtns.stateColor.inactive;
-  filterBtns.mobile.active.style.color = filterBtns.stateColor.inactive;
+  filterBtns.setStateColor(
+    filterBtns.stateColor.active,
+    filterBtns.stateColor.inactive,
+    filterBtns.stateColor.inactive
+  );
 
   filterBtns.removeFilters();
   filterMode = "all";
