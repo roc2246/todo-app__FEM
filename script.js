@@ -194,6 +194,7 @@ filterBtns.mobile.active.onclick = () => {
   filterBtns.mobile.all.style.color = "hsl(234, 11%, 52%)";
   filterBtns.mobile.completed.style.color = "hsl(234, 11%, 52%)";
   filterBtns.mobile.active.style.color = "blue";
+
   filterBtns.setFilter("none", "flex");
   filterMode = "active";
 };
@@ -218,6 +219,7 @@ filterBtns.mobile.completed.onclick = () => {
   filterBtns.mobile.all.style.color = "hsl(234, 11%, 52%)";
   filterBtns.mobile.completed.style.color = "blue";
   filterBtns.mobile.active.style.color = "hsl(234, 11%, 52%)";
+  
   filterBtns.setFilter("flex", "none");
   filterMode = "completed";
 };
