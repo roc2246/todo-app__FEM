@@ -1,4 +1,4 @@
-let btnIndex = [];
+let todoIndex = [];
 let filterMode = "all";
 
 let toDoTracker = {
@@ -23,27 +23,27 @@ const containers = {
   },
   deleteBtn: document.getElementsByClassName("todos__layout--delete"),
   assignDelete: function () {
-    btnIndex.forEach((btn) => {
-      let btnNo = btnIndex[btn];
+    todoIndex.forEach((btn) => {
+      let btnNo = todoIndex[btn];
       this.deleteBtn[btnNo].onclick = () => {
-        if (btnNo === undefined) btnNo = btnIndex.length - 1;
+        if (btnNo === undefined) btnNo = todoIndex.length - 1;
         if (this.todo[btnNo] === undefined) btnNo = 0;
 
         this.todo[btnNo].remove();
-        btnIndex.pop();
+        todoIndex.pop();
 
         this.toggleEmpty();
         this.assignDelete();
         this.assignCompleted();
 
-        toDoTracker.setTodos(btnIndex.length);
+        toDoTracker.setTodos(todoIndex.length);
       };
     });
   },
   circle: document.getElementsByClassName("todos__layout--circle"),
   assignCompleted: function () {
-    btnIndex.forEach((btn) => {
-      let btnNo = btnIndex[btn];
+    todoIndex.forEach((btn) => {
+      let btnNo = todoIndex[btn];
       this.circle[btnNo].onclick = () => {
         if (!this.circle[btnNo].classList.contains("completed")) {
           this.circle[btnNo].classList.add("completed");
@@ -51,29 +51,17 @@ const containers = {
           this.circle[btnNo].classList.remove("completed");
         }
 
-        if (filterMode === "active") {
-          filterBtns.setFilter("none", "flex");
-          filterBtns.desktop.active.focus();
-          filterBtns.mobile.active.focus();
-          filterBtns.desktop.all.style.color = "hsl(234, 11%, 52%)";
-          filterBtns.mobile.all.style.color = "hsl(234, 11%, 52%)";
-        } else if (filterMode === "completed") {
-          filterBtns.setFilter("flex", "none");
-          filterBtns.desktop.completed.focus();
-          filterBtns.mobile.completed.focus();
-          filterBtns.desktop.all.style.color = "hsl(234, 11%, 52%)";
-          filterBtns.mobile.all.style.color = "hsl(234, 11%, 52%)";
-        }
+        filterBtns.setFocus();
       };
     });
   },
 };
 
-const newElement = (ele) => document.createElement(ele);
-const newClass = (ele, name) => ele.classList.add(name);
-const mod = (mod) => `todos__layout--${mod}`;
-
 function newToDo() {
+  const newElement = (ele) => document.createElement(ele);
+  const newClass = (ele, name) => ele.classList.add(name);
+  const mod = (mod) => `todos__layout--${mod}`;
+
   const container = newElement("span");
   newClass(container, "todos__layout");
   newClass(container, "todos__list--item");
@@ -101,8 +89,8 @@ function newToDo() {
 
   containers.todoList.append(container);
 
-  btnIndex = [...btnIndex, btnIndex.length];
-  toDoTracker.setTodos(btnIndex.length);
+  todoIndex = [...todoIndex, todoIndex.length];
+  toDoTracker.setTodos(todoIndex.length);
   containers.toggleEmpty();
 }
 
@@ -127,34 +115,36 @@ const filterBtns = {
       }
     });
   },
+  setFocus: function () {
+    if (filterMode === "active") {
+      this.setFilter("none", "flex");
+      this.desktop.active.focus();
+      this.mobile.active.focus();
+      this.desktop.all.style.color = "hsl(234, 11%, 52%)";
+      this.mobile.all.style.color = "hsl(234, 11%, 52%)";
+    } else if (filterMode === "completed") {
+      this.setFilter("flex", "none");
+      this.desktop.completed.focus();
+      this.mobile.completed.focus();
+      this.desktop.all.style.color = "hsl(234, 11%, 52%)";
+      this.mobile.all.style.color = "hsl(234, 11%, 52%)";
+    }
+  },
   removeFilters: function () {
     Object.keys(containers.todo).forEach((no) => {
       containers.todo[no].style.display = "flex";
     });
   },
   clearCompleted: function () {
-    btnIndex.forEach((no) => {
-      let btnNo = btnIndex[no];
+    todoIndex.forEach((no) => {
+      let btnNo = todoIndex[no];
       if (containers.circle[btnNo].classList.contains("completed")) {
+        todoIndex.pop();
         containers.todo[btnNo].remove();
-        btnIndex.pop();
         containers.assignCompleted();
         containers.assignDelete();
-        filterBtns.clearCompleted();
-
-        if (filterMode === "active") {
-          filterBtns.setFilter("none", "flex");
-          filterBtns.desktop.active.focus();
-          filterBtns.mobile.active.focus();
-          filterBtns.desktop.all.style.color = "hsl(234, 11%, 52%)";
-          filterBtns.mobile.all.style.color = "hsl(234, 11%, 52%)";
-        } else if (filterMode === "completed") {
-          filterBtns.setFilter("flex", "none");
-          filterBtns.desktop.completed.focus();
-          filterBtns.mobile.completed.focus();
-          filterBtns.desktop.all.style.color = "hsl(234, 11%, 52%)";
-          filterBtns.mobile.all.style.color = "hsl(234, 11%, 52%)";
-        }
+        this.clearCompleted();
+        this.setFocus();
       }
     });
   },
@@ -164,19 +154,7 @@ filterBtns.clear.onclick = () => {
   filterBtns.clearCompleted();
   containers.toggleEmpty();
   toDoTracker.setTodos(containers.todo.length);
-  if (filterMode === "active") {
-    filterBtns.setFilter("none", "flex");
-    filterBtns.desktop.active.focus();
-    filterBtns.mobile.active.focus();
-    filterBtns.desktop.all.style.color = "hsl(234, 11%, 52%)";
-    filterBtns.mobile.all.style.color = "hsl(234, 11%, 52%)";
-  } else if (filterMode === "completed") {
-    filterBtns.setFilter("flex", "none");
-    filterBtns.desktop.completed.focus();
-    filterBtns.mobile.completed.focus();
-    filterBtns.desktop.all.style.color = "hsl(234, 11%, 52%)";
-    filterBtns.mobile.all.style.color = "hsl(234, 11%, 52%)";
-  }
+  filterBtns.setFocus();
 };
 
 filterBtns.mobile.all.onclick = () => {
@@ -212,29 +190,19 @@ filterBtns.desktop.completed.onclick = () => {
   filterMode = "completed";
 };
 
+containers.todoInput.onfocus = () => {
+  filterBtns.removeFilters();
+  filterBtns.desktop.all.style.color = "blue";
+  filterBtns.mobile.all.style.color = "blue";
+}
+
 containers.todoInput.onkeydown = (e) => {
   if (e.key === "Enter") {
     containers.todoInput.value.trim().length === 0
       ? alert("Please enter a todo")
       : newToDo();
     containers.todoInput.value = "";
-
-
-    if (filterMode === "active") {
-      filterBtns.setFilter("none", "flex");
-      filterBtns.desktop.active.focus();
-      filterBtns.mobile.active.focus();
-      filterBtns.desktop.all.style.color = "hsl(234, 11%, 52%)";
-      filterBtns.mobile.all.style.color = "hsl(234, 11%, 52%)";
-    } else if (filterMode === "completed") {
-      filterBtns.setFilter("flex", "none");
-      filterBtns.desktop.completed.focus();
-      filterBtns.mobile.completed.focus();
-      filterBtns.desktop.all.style.color = "hsl(234, 11%, 52%)";
-      filterBtns.mobile.all.style.color = "hsl(234, 11%, 52%)";
-    }
     containers.todoInput.focus();
-
   }
 
   containers.assignDelete();
@@ -247,5 +215,4 @@ containers.todoInput.onkeydown = (e) => {
   } else if (filterMode === "all") {
     filterBtns.removeFilters();
   }
-  
 };
