@@ -53,8 +53,16 @@ const containers = {
 
         if (filterMode === "active") {
           filterBtns.setFilter("none", "flex");
+          filterBtns.desktop.active.focus();
+          filterBtns.mobile.active.focus();
+          filterBtns.desktop.all.style.color = "hsl(234, 11%, 52%)";
+          filterBtns.mobile.all.style.color = "hsl(234, 11%, 52%)";
         } else if (filterMode === "completed") {
           filterBtns.setFilter("flex", "none");
+          filterBtns.desktop.completed.focus();
+          filterBtns.mobile.completed.focus();
+          filterBtns.desktop.all.style.color = "hsl(234, 11%, 52%)";
+          filterBtns.mobile.all.style.color = "hsl(234, 11%, 52%)";
         }
       };
     });
