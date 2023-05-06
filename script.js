@@ -3,9 +3,7 @@ let filterMode = "all";
 
 let toDoTracker = {
   todosLeft: document.getElementById("todos-left"),
-  setTodos: function (amt) {
-    this.todosLeft.innerHTML = amt;
-  },
+  setTodos: (amt) => (toDoTracker.todosLeft.innerHTML = amt),
 };
 toDoTracker.setTodos(0);
 
@@ -103,9 +101,9 @@ function newToDo() {
 }
 
 const filterBtns = {
-  stateColor : {
+  stateColor: {
     inactive: "hsl(234, 11%, 52%)",
-    active: "blue"
+    active: "blue",
   },
   clear: document.getElementsByClassName("filter--clear")[0],
   mobile: {
@@ -214,7 +212,7 @@ filterBtns.mobile.completed.onclick = () => {
   filterBtns.mobile.all.style.color = filterBtns.stateColor.inactive;
   filterBtns.mobile.completed.style.color = filterBtns.stateColor.active;
   filterBtns.mobile.active.style.color = filterBtns.stateColor.inactive;
-  
+
   filterBtns.setFilter("flex", "none");
   filterMode = "completed";
 };
@@ -242,7 +240,7 @@ containers.todoInput.onfocus = () => {
 
   filterBtns.removeFilters();
   filterMode = "all";
-}
+};
 
 containers.todoInput.onkeydown = (e) => {
   if (e.key === "Enter") {
