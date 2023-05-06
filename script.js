@@ -162,34 +162,74 @@ filterBtns.clear.onclick = () => {
 };
 
 filterBtns.mobile.all.onclick = () => {
+  filterBtns.desktop.all.style.color = "blue";
+  filterBtns.desktop.completed.style.color = "hsl(234, 11%, 52%)";
+  filterBtns.desktop.active.style.color = "hsl(234, 11%, 52%)";
+
   filterBtns.mobile.all.style.color = "blue";
+  filterBtns.mobile.completed.style.color = "hsl(234, 11%, 52%)";
+  filterBtns.mobile.active.style.color = "hsl(234, 11%, 52%)";
+
   filterBtns.removeFilters();
   filterMode = "all";
 };
 filterBtns.desktop.all.onclick = () => {
   filterBtns.desktop.all.style.color = "blue";
+  filterBtns.desktop.completed.style.color = "hsl(234, 11%, 52%)";
+  filterBtns.desktop.active.style.color = "hsl(234, 11%, 52%)";
+
+  filterBtns.mobile.all.style.color = "blue";
+  filterBtns.mobile.completed.style.color = "hsl(234, 11%, 52%)";
+  filterBtns.mobile.active.style.color = "hsl(234, 11%, 52%)";
+
   filterBtns.removeFilters();
   filterMode = "all";
 };
 
 filterBtns.mobile.active.onclick = () => {
+  filterBtns.desktop.all.style.color = "hsl(234, 11%, 52%)";
+  filterBtns.desktop.completed.style.color = "hsl(234, 11%, 52%)";
+  filterBtns.desktop.active.style.color = "blue";
+
   filterBtns.mobile.all.style.color = "hsl(234, 11%, 52%)";
+  filterBtns.mobile.completed.style.color = "hsl(234, 11%, 52%)";
+  filterBtns.mobile.active.style.color = "blue";
   filterBtns.setFilter("none", "flex");
   filterMode = "active";
 };
 filterBtns.desktop.active.onclick = () => {
   filterBtns.desktop.all.style.color = "hsl(234, 11%, 52%)";
+  filterBtns.desktop.completed.style.color = "hsl(234, 11%, 52%)";
+  filterBtns.desktop.active.style.color = "blue";
+
+  filterBtns.mobile.all.style.color = "hsl(234, 11%, 52%)";
+  filterBtns.mobile.completed.style.color = "hsl(234, 11%, 52%)";
+  filterBtns.mobile.active.style.color = "blue";
+
   filterBtns.setFilter("none", "flex");
   filterMode = "active";
 };
 
 filterBtns.mobile.completed.onclick = () => {
+  filterBtns.desktop.all.style.color = "hsl(234, 11%, 52%)";
+  filterBtns.desktop.completed.style.color = "blue";
+  filterBtns.desktop.active.style.color = "hsl(234, 11%, 52%)";
+
   filterBtns.mobile.all.style.color = "hsl(234, 11%, 52%)";
+  filterBtns.mobile.completed.style.color = "blue";
+  filterBtns.mobile.active.style.color = "hsl(234, 11%, 52%)";
   filterBtns.setFilter("flex", "none");
   filterMode = "completed";
 };
 filterBtns.desktop.completed.onclick = () => {
   filterBtns.desktop.all.style.color = "hsl(234, 11%, 52%)";
+  filterBtns.desktop.completed.style.color = "blue";
+  filterBtns.desktop.active.style.color = "hsl(234, 11%, 52%)";
+
+  filterBtns.mobile.all.style.color = "hsl(234, 11%, 52%)";
+  filterBtns.mobile.completed.style.color = "blue";
+  filterBtns.mobile.active.style.color = "hsl(234, 11%, 52%)";
+
   filterBtns.setFilter("flex", "none");
   filterMode = "completed";
 };
@@ -197,7 +237,12 @@ filterBtns.desktop.completed.onclick = () => {
 containers.todoInput.onfocus = () => {
   filterBtns.removeFilters();
   filterBtns.desktop.all.style.color = "blue";
+  filterBtns.desktop.completed.style.color = "hsl(234, 11%, 52%)";
+  filterBtns.desktop.active.style.color = "hsl(234, 11%, 52%)";
+
   filterBtns.mobile.all.style.color = "blue";
+  filterBtns.mobile.completed.style.color = "hsl(234, 11%, 52%)";
+  filterBtns.mobile.active.style.color = "hsl(234, 11%, 52%)";
 }
 
 containers.todoInput.onkeydown = (e) => {
