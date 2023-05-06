@@ -125,27 +125,24 @@ const filterBtns = {
     active: document.getElementsByClassName("filter--active")[1],
     completed: document.getElementsByClassName("filter--completed")[1],
   },
-  allState: function () {
-    this.setStateColor(
-      this.stateColor.active,
-      this.stateColor.inactive,
-      this.stateColor.inactive
-    );
-  },
-  activeState: function () {
-    this.setStateColor(
-      this.stateColor.inactive,
-      this.stateColor.inactive,
-      this.stateColor.active
-    );
-  },
-  completedState: function () {
-    this.setStateColor(
-      this.stateColor.inactive,
-      this.stateColor.active,
-      this.stateColor.inactive
-    );
-  },
+  allState: () =>
+    filterBtns.setStateColor(
+      filterBtns.stateColor.active,
+      filterBtns.stateColor.inactive,
+      filterBtns.stateColor.inactive
+    ),
+  activeState: () =>
+    filterBtns.setStateColor(
+      filterBtns.stateColor.inactive,
+      filterBtns.stateColor.inactive,
+      filterBtns.stateColor.active
+    ),
+  completedState: () =>
+    filterBtns.setStateColor(
+      filterBtns.stateColor.inactive,
+      filterBtns.stateColor.active,
+      filterBtns.stateColor.inactive
+    ),
   setFilter: function (completed, active) {
     Object.keys(containers.todo).forEach((no) => {
       if (containers.circle[no].classList.contains("completed")) {
@@ -158,6 +155,27 @@ const filterBtns = {
         containers.todo[no].style.borderTopRightRadius = ".5rem";
       }
     });
+  },
+  setOnClick: function (filterCat, state) {
+    function sortToDo() {
+      if (filterCat === "all") {
+        filterBtns.removeFilters();
+      } else if (filterCat === "active") {
+        filterBtns.setFilter("none", "flex");
+      } else if (filterCat === "completed") {
+        filterBtns.setFilter("flex", "none");
+      }
+    }
+    this.mobile[filterCat].onclick = () => {
+      state();
+      sortToDo();
+      filterMode = filterCat;
+    };
+    this.desktop[filterCat].onclick = () => {
+      state();
+      sortToDo();
+      filterMode = filterCat;
+    };
   },
   removeFilters: function () {
     Object.keys(containers.todo).forEach((no) => {
@@ -184,38 +202,9 @@ filterBtns.clear.onclick = () => {
   toDoTracker.setTodos(containers.todo.length);
 };
 
-filterBtns.mobile.all.onclick = () => {
-  filterBtns.allState();
-  filterBtns.removeFilters();
-  filterMode = "all";
-};
-filterBtns.desktop.all.onclick = () => {
-  filterBtns.allState();
-  filterBtns.removeFilters();
-  filterMode = "all";
-};
-
-filterBtns.mobile.active.onclick = () => {
-  filterBtns.activeState();
-  filterBtns.setFilter("none", "flex");
-  filterMode = "active";
-};
-filterBtns.desktop.active.onclick = () => {
-  filterBtns.activeState();
-  filterBtns.setFilter("none", "flex");
-  filterMode = "active";
-};
-
-filterBtns.mobile.completed.onclick = () => {
-  filterBtns.completedState();
-  filterBtns.setFilter("flex", "none");
-  filterMode = "completed";
-};
-filterBtns.desktop.completed.onclick = () => {
-  filterBtns.completedState();
-  filterBtns.setFilter("flex", "none");
-  filterMode = "completed";
-};
+filterBtns.setOnClick("all", filterBtns.allState);
+filterBtns.setOnClick("active", filterBtns.activeState);
+filterBtns.setOnClick("completed", filterBtns.completedState);
 
 containers.todoInput.onfocus = () => {
   filterBtns.allState();
