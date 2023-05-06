@@ -110,8 +110,12 @@ const filterBtns = {
     Object.keys(containers.todo).forEach((no) => {
       if (containers.circle[no].classList.contains("completed")) {
         containers.todo[no].style.display = completed;
+        containers.todo[no].style.borderTopLeftRadius = ".5rem";
+        containers.todo[no].style.borderTopRightRadius = ".5rem";
       } else {
         containers.todo[no].style.display = active;
+        containers.todo[no].style.borderTopLeftRadius = ".5rem";
+        containers.todo[no].style.borderTopRightRadius = ".5rem";
       }
     });
   },
