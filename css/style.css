@@ -115,6 +115,9 @@ aside {
       line-height: 2.5rem; }
     .todos__layout--delete {
       margin-left: auto; }
+    .todos__layout:nth-child(1) {
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0.5rem; }
   .todos__new {
     border-radius: 0.5rem;
     margin-bottom: 0.75rem; }
