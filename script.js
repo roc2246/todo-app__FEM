@@ -26,7 +26,6 @@ const containers = {
       this.deleteBtn[btnNo].onclick = () => {
         if (btnNo === undefined) btnNo = todoIndex.length - 1;
         if (this.todo[btnNo] === undefined) btnNo = 0;
-
         this.todo[btnNo].remove();
         todoIndex.pop();
         toDoTracker.setTodos(todoIndex.length);
@@ -35,9 +34,12 @@ const containers = {
 
         this.assignDelete();
         this.assignCompleted();
-        this.assignDrag();
-
       };
+    });
+    todoIndex.forEach((btn) => {
+      this.todo[btn].ondragstart = () => {};
+      this.todo[btn].ondragend = () => {};
+      this.assignDrag();
     });
   },
   circle: document.getElementsByClassName("todos__layout--circle"),
@@ -66,13 +68,13 @@ const containers = {
   assignDrag: function () {
     todoIndex.forEach((btn) => {
       let todoNo = todoIndex[btn];
-      this.todo[todoNo].addEventListener("dragstart", () => {
+      this.todo[todoNo].ondragstart = () => {
         console.log(todoNo);
-        this.todo[todoNo].classList.add("dragging")
-      });
-      this.todo[todoNo].addEventListener("dragend", () => {
-        this.todo[todoNo].classList.remove("dragging")
-      });
+        this.todo[todoNo].classList.add("dragging");
+      };
+      this.todo[todoNo].ondragend = () => {
+        this.todo[todoNo].classList.remove("dragging");
+      };
     });
   },
 };
@@ -201,7 +203,7 @@ const filterBtns = {
         containers.todo[btnNo].remove();
         containers.assignCompleted();
         containers.assignDelete();
-        containers.assignDrag()
+        containers.assignDrag();
         this.clearCompleted();
       }
     });
@@ -235,5 +237,5 @@ containers.todoInput.onkeydown = (e) => {
 
   containers.assignDelete();
   containers.assignCompleted();
-  containers.assignDrag()
+  containers.assignDrag();
 };
