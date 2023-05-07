@@ -1,6 +1,7 @@
 $border-radius: 0.5rem;
 
 .todos {
+  cursor: pointer;
   margin-left: 1rem;
   margin-right: 1rem;
   &__layout {
@@ -52,4 +53,8 @@ $border-radius: 0.5rem;
       border-top-right-radius: $border-radius;
     }
   }
+}
+
+.dragging{
+  background-color: red;
 }

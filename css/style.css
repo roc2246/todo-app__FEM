@@ -91,6 +91,7 @@ aside {
   color: blue; }
 
 .todos {
+  cursor: pointer;
   margin-left: 1rem;
   margin-right: 1rem; }
   .todos__layout {
@@ -124,6 +125,9 @@ aside {
   .todos__list--item:nth-child(2) {
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem; }
+
+.dragging {
+  background-color: red; }
 
 .todos__manage {
   display: flex;

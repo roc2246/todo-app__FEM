@@ -29,12 +29,14 @@ const containers = {
 
         this.todo[btnNo].remove();
         todoIndex.pop();
+        toDoTracker.setTodos(todoIndex.length);
 
         this.toggleEmpty();
+
         this.assignDelete();
         this.assignCompleted();
+        this.assignDrag();
 
-        toDoTracker.setTodos(todoIndex.length);
       };
     });
   },
@@ -59,6 +61,18 @@ const containers = {
           filterBtns.mobile.all.style.color = filterBtns.stateColor.inactive;
         }
       };
+    });
+  },
+  assignDrag: function () {
+    todoIndex.forEach((btn) => {
+      let todoNo = todoIndex[btn];
+      this.todo[todoNo].addEventListener("dragstart", () => {
+        console.log(todoNo);
+        this.todo[todoNo].classList.add("dragging")
+      });
+      this.todo[todoNo].addEventListener("dragend", () => {
+        this.todo[todoNo].classList.remove("dragging")
+      });
     });
   },
 };
@@ -166,7 +180,7 @@ const filterBtns = {
         filterBtns.setFilter("flex", "none");
       }
     }
-    function setOnCliCK () {
+    function setOnCliCK() {
       state();
       sortToDo();
       filterMode = filterCat;
@@ -187,6 +201,7 @@ const filterBtns = {
         containers.todo[btnNo].remove();
         containers.assignCompleted();
         containers.assignDelete();
+        containers.assignDrag()
         this.clearCompleted();
       }
     });
@@ -220,4 +235,5 @@ containers.todoInput.onkeydown = (e) => {
 
   containers.assignDelete();
   containers.assignCompleted();
+  containers.assignDrag()
 };
