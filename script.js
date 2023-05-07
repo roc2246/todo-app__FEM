@@ -71,18 +71,20 @@ const containers = {
       this.todo[todoNo].ondragstart = () => {
         this.todo[todoNo].classList.add("dragging");
       };
-      this.todo[todoNo].ondragover = (e) => {
-        // e.preventDefault()
+      this.todo[todoNo].ondragover = () => {
         const dragItem = document.querySelector(".dragging");
-        this.todoList.append(dragItem)
+        const hoveredItem = this.todo[todoNo];
+
+        this.todoList.insertBefore(dragItem, hoveredItem);
+        
       };
       this.todo[todoNo].ondragend = () => {
-        this.todo[todoNo].classList.remove("dragging");
-        this.assignCompleted()
-        this.assignDelete()
+        const dragItem = document.querySelector(".dragging");
+        dragItem.classList.remove("dragging");
+        this.assignCompleted();
+        this.assignDelete();
       };
     });
-
   },
 };
 
