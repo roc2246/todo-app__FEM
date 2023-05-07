@@ -127,7 +127,7 @@ aside {
     border-top-right-radius: 0.5rem; }
 
 .dragging {
-  background-color: red; }
+  opacity: .5rem; }
 
 .todos__manage {
   display: flex;

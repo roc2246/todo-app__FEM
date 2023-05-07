@@ -67,14 +67,22 @@ const containers = {
   assignDrag: function () {
     todoIndex.forEach((btn) => {
       let todoNo = todoIndex[btn];
+
       this.todo[todoNo].ondragstart = () => {
-        console.log(todoNo);
         this.todo[todoNo].classList.add("dragging");
+      };
+      this.todo[todoNo].ondragover = (e) => {
+        // e.preventDefault()
+        const dragItem = document.querySelector(".dragging");
+        this.todoList.append(dragItem)
       };
       this.todo[todoNo].ondragend = () => {
         this.todo[todoNo].classList.remove("dragging");
+        this.assignCompleted()
+        this.assignDelete()
       };
     });
+
   },
 };
 
@@ -108,7 +116,7 @@ function newToDo() {
   container.append(text);
   container.append(deleteBtn);
 
-  container.setAttribute("draggable", true)
+  container.setAttribute("draggable", true);
   containers.todoList.append(container);
 
   todoIndex = [...todoIndex, todoIndex.length];
