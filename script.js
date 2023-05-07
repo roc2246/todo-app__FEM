@@ -31,7 +31,6 @@ const containers = {
         toDoTracker.setTodos(todoIndex.length);
 
         this.toggleEmpty();
-
         this.assignDelete();
         this.assignCompleted();
       };
@@ -109,6 +108,7 @@ function newToDo() {
   container.append(text);
   container.append(deleteBtn);
 
+  container.setAttribute("draggable", true)
   containers.todoList.append(container);
 
   todoIndex = [...todoIndex, todoIndex.length];
