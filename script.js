@@ -37,6 +37,7 @@ const containers = {
     });
     todoIndex.forEach((btn) => {
       this.todo[btn].ondragstart = () => {};
+      this.todo[btn].ondragleave = () => {};
       this.todo[btn].ondragend = () => {};
       this.assignDrag();
     });
@@ -71,12 +72,24 @@ const containers = {
       this.todo[todoNo].ondragstart = () => {
         this.todo[todoNo].classList.add("dragging");
       };
-      this.todo[todoNo].ondragover = () => {
+      this.todo[todoNo].ondragover = (e) => {
         const dragItem = document.querySelector(".dragging");
-        const hoveredItem = this.todo[todoNo];
+        const dragHeight = dragItem.getBoundingClientRect().y;
 
-        this.todoList.insertBefore(dragItem, hoveredItem);
-        
+        const hoveredItem = this.todo[todoNo];
+        const hoverHeight = hoveredItem.getBoundingClientRect().y;
+
+        const lastItem = this.todo[todoIndex.length - 1];
+        const lastHeight = lastItem.getBoundingClientRect().y;
+
+        if (dragHeight < hoverHeight) {
+          this.todoList.insertBefore(dragItem, hoveredItem);
+        }
+      };
+      this.todo[todoNo].ondragleave = () => {
+        const dragItem = document.querySelector(".dragging");
+        if (this.todo[todoNo] === this.todo[todoIndex.length - 1])
+          this.todoList.append(dragItem);
       };
       this.todo[todoNo].ondragend = () => {
         const dragItem = document.querySelector(".dragging");
