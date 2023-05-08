@@ -79,9 +79,6 @@ const containers = {
         const hoveredItem = this.todo[todoNo];
         const hoverHeight = hoveredItem.getBoundingClientRect().y;
 
-        const lastItem = this.todo[todoIndex.length - 1];
-        const lastHeight = lastItem.getBoundingClientRect().y;
-
         if (dragHeight < hoverHeight) {
           this.todoList.insertBefore(dragItem, hoveredItem);
         } else if (dragHeight > hoverHeight) {
