@@ -84,11 +84,17 @@ const containers = {
 
         if (dragHeight < hoverHeight) {
           this.todoList.insertBefore(dragItem, hoveredItem);
-        }
+        } else if (dragHeight > hoverHeight) {
+          this.todoList.insertBefore(dragItem, hoveredItem);
+          this.todo[todoNo].ondragover = () => {};
+        } 
       };
-      this.todo[todoNo].ondragleave = () => {
+      this.todo[todoNo].ondragleave = (e) => {
         const dragItem = document.querySelector(".dragging");
-        if (this.todo[todoNo] === this.todo[todoIndex.length - 1])
+        if (e.screenY == 358){
+          this.todoList.insertBefore(dragItem,this.todo[0]);
+        }
+        if (this.todo[todoNo] === this.todo[todoIndex.length - 1] && e.screenY >= 489)
           this.todoList.append(dragItem);
       };
       this.todo[todoNo].ondragend = () => {
