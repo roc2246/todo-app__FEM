@@ -112,6 +112,7 @@ function newToDo() {
   const container = newElement("span");
   newClass(container, "todos__layout");
   newClass(container, "todos__list--item");
+  newClass(container, "todo--light")
 
   const circleBtn = newElement("div");
   newClass(circleBtn, mod("circle"));
