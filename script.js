@@ -115,10 +115,9 @@ function newToDo() {
 
   const container = newElement("span");
   newClass(container, "todos__layout");
-  if (toggleMode === "light") {
-    newClass(container, mod("light"));
-  } else if (toggleMode === "dark") {
-    newClass(container, mod("light"));
+  newClass(container, mod("light"));
+  if (toggleMode === "dark") {
+    newClass(container, mod("dark"));
   }
 
   newClass(container, "todos__list--item");
@@ -128,6 +127,10 @@ function newToDo() {
 
   const text = newElement("p");
   newClass(text, mod("text"));
+  newClass(text, "text--light");
+  if (toggleMode === "dark") {
+    newClass(text, "text--dark");
+  }
   text.innerText = containers.todoInput.value;
 
   const deleteBtn = newElement("button");
@@ -280,15 +283,15 @@ const displayMode = {
   btn: document.getElementsByClassName("top__display-mode")[0],
   moon: document.getElementsByClassName("top__display-mode--dark")[0],
   sun: document.getElementsByClassName("top__display-mode--light")[0],
-  element: function (ele, mode, no) {
-    const cont = document.getElementsByClassName(`${ele}--${mode}`)[no];
-    if (mode === "light") {
-      cont.classList.remove(`${ele}--light`);
-      cont.classList.add(`${ele}--dark`);
-    } else if (mode === "dark") {
-      cont.classList.remove(`${ele}--dark`);
-      cont.classList.add(`${ele}--light`);
-    }
+  element: function (ele, mode) {
+    const cont = document.getElementsByClassName(`${ele}--light`);
+    Object.keys(cont).forEach((no) => {
+      if (mode === "light") {
+        cont[no].classList.add(`${ele}--dark`);
+      } else if (mode === "dark") {
+        cont[no].classList.remove(`${ele}--dark`);
+      }
+    });
   },
 };
 
@@ -297,26 +300,26 @@ displayMode.btn.onclick = () => {
     displayMode.moon.style.display === "" ||
     displayMode.moon.style.display === "inline"
   ) {
-    toggleMode = "dark"
+    toggleMode = "dark";
     displayMode.moon.style.display = "none";
     displayMode.sun.style.display = "inline";
-    displayMode.element("body", "light", 0);
-    displayMode.element("text", "light", 0);
-    displayMode.element("header", "light", 0);
-    displayMode.element("todos__layout", "light", 0);
-    displayMode.element("todos__manage", "light", 0);
-    displayMode.element("filter-box", "light", 0);
-    displayMode.element("filter-box", "light", 0);
+    displayMode.element("body", "light");
+    displayMode.element("text", "light");
+    displayMode.element("btn", "light");
+    displayMode.element("header", "light");
+    displayMode.element("todos__layout", "light");
+    displayMode.element("todos__manage", "light");
+    displayMode.element("filter-box", "light");
   } else {
-    toggleMode = "light"
+    toggleMode = "light";
     displayMode.moon.style.display = "inline";
     displayMode.sun.style.display = "none";
-    displayMode.element("body", "dark", 0);
-    displayMode.element("text", "dark", 0);
-    displayMode.element("header", "dark", 0);
-    displayMode.element("todos__layout", "dark", 0);
-    displayMode.element("todos__manage", "dark", 0);
-    displayMode.element("filter-box", "dark", 0);
-    displayMode.element("filter-box", "dark", 0);
+    displayMode.element("body", "dark");
+    displayMode.element("text", "dark");
+    displayMode.element("btn", "dark");
+    displayMode.element("header", "dark");
+    displayMode.element("todos__layout", "dark");
+    displayMode.element("todos__manage", "dark");
+    displayMode.element("filter-box", "dark");
   }
 };

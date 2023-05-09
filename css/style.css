@@ -15,7 +15,6 @@ button {
   cursor: pointer;
   border: none;
   background-color: transparent;
-  color: #777a92;
   font-weight: 700; }
 
 header {
@@ -84,9 +83,6 @@ aside {
     text-decoration: line-through; }
 
 .filter-box-central > button:nth-child(1) {
-  color: blue; }
-
-.filter-box-central > button:focus {
   color: blue; }
 
 .todos {
@@ -179,6 +175,14 @@ aside {
 footer > p {
   text-align: center; }
 
+.btn--light {
+  color: #777a92; }
+  .btn--light:hover {
+    color: black !important; }
+
+.btn--dark:hover {
+  color: white !important; }
+
 .text--light {
   color: #777a92; }
 
@@ -209,18 +213,18 @@ footer > p {
     background-color: white; }
 
 .todos__layout--dark {
-  background-color: #484b6a; }
+  background-color: #393a4c; }
   .todos__layout--dark > input {
-    background-color: #484b6a; }
+    background-color: #393a4c; }
 
 .todos__manage--light {
   background-color: white; }
 
 .todos__manage--dark {
-  background-color: #484b6a; }
+  background-color: #393a4c; }
 
 .filter-box--light {
   background-color: white; }
 
 .filter-box--dark {
-  background-color: #484b6a; }
+  background-color: #393a4c; }
