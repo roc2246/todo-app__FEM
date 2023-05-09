@@ -1,5 +1,6 @@
 let todoIndex = [];
 let filterMode = "all";
+let toggleMode = "light";
 
 let toDoTracker = {
   todosLeft: document.getElementById("todos-left"),
@@ -114,7 +115,12 @@ function newToDo() {
 
   const container = newElement("span");
   newClass(container, "todos__layout");
-  newClass(container, mod("light"));
+  if (toggleMode === "light") {
+    newClass(container, mod("light"));
+  } else if (toggleMode === "dark") {
+    newClass(container, mod("light"));
+  }
+
   newClass(container, "todos__list--item");
 
   const circleBtn = newElement("div");
@@ -279,7 +285,7 @@ const displayMode = {
     if (mode === "light") {
       cont.classList.remove(`${ele}--light`);
       cont.classList.add(`${ele}--dark`);
-    } else if (mode === "dark"){
+    } else if (mode === "dark") {
       cont.classList.remove(`${ele}--dark`);
       cont.classList.add(`${ele}--light`);
     }
@@ -291,24 +297,26 @@ displayMode.btn.onclick = () => {
     displayMode.moon.style.display === "" ||
     displayMode.moon.style.display === "inline"
   ) {
+    toggleMode = "dark"
     displayMode.moon.style.display = "none";
     displayMode.sun.style.display = "inline";
-    displayMode.element("body", "light", 0)
-    displayMode.element("text", "light", 0)
+    displayMode.element("body", "light", 0);
+    displayMode.element("text", "light", 0);
     displayMode.element("header", "light", 0);
-    displayMode.element("todos__layout", "light", 0)
-    displayMode.element("todos__manage", "light", 0)
-    displayMode.element("filter-box", "light", 0)
-    displayMode.element("filter-box", "light", 0)
+    displayMode.element("todos__layout", "light", 0);
+    displayMode.element("todos__manage", "light", 0);
+    displayMode.element("filter-box", "light", 0);
+    displayMode.element("filter-box", "light", 0);
   } else {
+    toggleMode = "light"
     displayMode.moon.style.display = "inline";
     displayMode.sun.style.display = "none";
-    displayMode.element("body", "dark", 0)
-    displayMode.element("text", "dark", 0)
+    displayMode.element("body", "dark", 0);
+    displayMode.element("text", "dark", 0);
     displayMode.element("header", "dark", 0);
-    displayMode.element("todos__layout", "dark", 0)
-    displayMode.element("todos__manage", "dark", 0)
-    displayMode.element("filter-box", "dark", 0)
-    displayMode.element("filter-box", "dark", 0)
+    displayMode.element("todos__layout", "dark", 0);
+    displayMode.element("todos__manage", "dark", 0);
+    displayMode.element("filter-box", "dark", 0);
+    displayMode.element("filter-box", "dark", 0);
   }
 };
