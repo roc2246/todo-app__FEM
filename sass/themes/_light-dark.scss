@@ -34,19 +34,19 @@
 
 .header{
   &--light{
-    background-image: url("/images/bg-mobile-light.jpg");
+    background-image: url("../images/bg-mobile-light.jpg");
   }
   &--dark{
-    background-image: url("/images/bg-mobile-dark.jpg");
+    background-image: url("../images/bg-mobile-dark.jpg");
   }
 }
 @media(min-width: 376px){
   .header{
     &--light{
-      background-image: url("/images/bg-desktop-light.jpg");
+      background-image: url("../images/bg-desktop-light.jpg");
     }
     &--dark{
-      background-image: url("/images/bg-desktop-dark.jpg");
+      background-image: url("../images/bg-desktop-dark.jpg");
     }
   }
 }

@@ -26,7 +26,7 @@
 }
 
 .completed {
-  background-image: url("/images/icon-check.svg"), linear-gradient($linear-gradient-1, $linear-gradient-2);
+  background-image: url("../images/icon-check.svg"), linear-gradient($linear-gradient-1, $linear-gradient-2);
   background-repeat: no-repeat, repeat;
   background-size: 75%, 100%;
   background-position-x: .1rem, 2rem;

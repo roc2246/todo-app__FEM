@@ -71,7 +71,7 @@ aside {
   border-radius: 50%; }
 
 .completed {
-  background-image: url("/images/icon-check.svg"), linear-gradient(#57ddff, #c058f3);
+  background-image: url("../images/icon-check.svg"), linear-gradient(#57ddff, #c058f3);
   background-repeat: no-repeat, repeat;
   background-size: 75%, 100%;
   background-position-x: .1rem, 2rem;
@@ -196,16 +196,16 @@ footer > p {
   background-color: #161722; }
 
 .header--light {
-  background-image: url("/images/bg-mobile-light.jpg"); }
+  background-image: url("../images/bg-mobile-light.jpg"); }
 
 .header--dark {
-  background-image: url("/images/bg-mobile-dark.jpg"); }
+  background-image: url("../images/bg-mobile-dark.jpg"); }
 
 @media (min-width: 376px) {
   .header--light {
-    background-image: url("/images/bg-desktop-light.jpg"); }
+    background-image: url("../images/bg-desktop-light.jpg"); }
   .header--dark {
-    background-image: url("/images/bg-desktop-dark.jpg"); } }
+    background-image: url("../images/bg-desktop-dark.jpg"); } }
 
 .todos__layout--light {
   background-color: white; }
