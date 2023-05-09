@@ -84,14 +84,17 @@ const containers = {
         } else if (dragHeight > hoverHeight) {
           this.todoList.insertBefore(dragItem, hoveredItem);
           this.todo[todoNo].ondragover = () => {};
-        } 
+        }
       };
       this.todo[todoNo].ondragleave = (e) => {
         const dragItem = document.querySelector(".dragging");
-        if (e.screenY == 358){
-          this.todoList.insertBefore(dragItem,this.todo[0]);
+        if (e.screenY == 358) {
+          this.todoList.insertBefore(dragItem, this.todo[0]);
         }
-        if (this.todo[todoNo] === this.todo[todoIndex.length - 1] && e.screenY >= 489)
+        if (
+          this.todo[todoNo] === this.todo[todoIndex.length - 1] &&
+          e.screenY >= 489
+        )
           this.todoList.append(dragItem);
       };
       this.todo[todoNo].ondragend = () => {
@@ -111,8 +114,8 @@ function newToDo() {
 
   const container = newElement("span");
   newClass(container, "todos__layout");
+  newClass(container, mod("light"));
   newClass(container, "todos__list--item");
-  newClass(container, "todo--light")
 
   const circleBtn = newElement("div");
   newClass(circleBtn, mod("circle"));
@@ -265,4 +268,47 @@ containers.todoInput.onkeydown = (e) => {
   containers.assignDelete();
   containers.assignCompleted();
   containers.assignDrag();
+};
+
+const displayMode = {
+  btn: document.getElementsByClassName("top__display-mode")[0],
+  moon: document.getElementsByClassName("top__display-mode--dark")[0],
+  sun: document.getElementsByClassName("top__display-mode--light")[0],
+  element: function (ele, mode, no) {
+    const cont = document.getElementsByClassName(`${ele}--${mode}`)[no];
+    if (mode === "light") {
+      cont.classList.remove(`${ele}--light`);
+      cont.classList.add(`${ele}--dark`);
+    } else if (mode === "dark"){
+      cont.classList.remove(`${ele}--dark`);
+      cont.classList.add(`${ele}--light`);
+    }
+  },
+};
+
+displayMode.btn.onclick = () => {
+  if (
+    displayMode.moon.style.display === "" ||
+    displayMode.moon.style.display === "inline"
+  ) {
+    displayMode.moon.style.display = "none";
+    displayMode.sun.style.display = "inline";
+    displayMode.element("body", "light", 0)
+    displayMode.element("text", "light", 0)
+    displayMode.element("header", "light", 0);
+    displayMode.element("todos__layout", "light", 0)
+    displayMode.element("todos__manage", "light", 0)
+    displayMode.element("filter-box", "light", 0)
+    displayMode.element("filter-box", "light", 0)
+  } else {
+    displayMode.moon.style.display = "inline";
+    displayMode.sun.style.display = "none";
+    displayMode.element("body", "dark", 0)
+    displayMode.element("text", "dark", 0)
+    displayMode.element("header", "dark", 0);
+    displayMode.element("todos__layout", "dark", 0)
+    displayMode.element("todos__manage", "dark", 0)
+    displayMode.element("filter-box", "dark", 0)
+    displayMode.element("filter-box", "dark", 0)
+  }
 };

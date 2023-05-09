@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./css/style.css" />
     <title>Frontend Mentor | Todo app</title>
   </head>
-  <body>
+  <body class="body--light">
     <header class="header--light">
       <div class="top">
         <h1 class="top__heading">TO DO</h1>
@@ -33,7 +33,7 @@
 
     <main class="main--light">
       <section class="todos">
-        <span class="todos__layout todos__new new-todo--light">
+        <span class="todos__layout todos__layout--light todos__new">
           <div class="todos__new--circle"></div>
 
           <input
@@ -46,13 +46,13 @@
         </span>
 
         <div class="todos__list">
-          <span class="todos__layout todos__empty">
-            <p class="todos__empty--text">No todos left</p>
+          <span class="todos__layout todos__layout--light todos__empty">
+            <p class="todos__empty--text text--light">No todos left</p>
           </span>
         </div>
 
-        <div class="todos__manage">
-          <p class="todos__manage--items-left">
+        <div class="todos__manage todos__manage--light">
+          <p class="todos__manage--items-left text--light">
             <span id="todos-left"></span> items left
           </p>
 
@@ -73,7 +73,7 @@
       </section>
     </main>
 
-    <footer><p>Drag and drop to reorder list</p></footer>
+    <footer><p class="text--light">Drag and drop to reorder list</p></footer>
 
     <script src="script.js"></script>
   </body>

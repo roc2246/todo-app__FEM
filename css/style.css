@@ -5,8 +5,7 @@ html {
 
 body {
   margin: 0;
-  height: 100vh;
-  background-color: #fafafa; }
+  height: 100vh; }
 
 p {
   font-size: 0.75rem;
@@ -20,7 +19,6 @@ button {
   font-weight: 700; }
 
 header {
-  background-image: url("/images/bg-desktop-light.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 10rem; }
@@ -98,7 +96,6 @@ aside {
   .todos__layout {
     display: flex;
     flex-direction: row;
-    background-color: white;
     padding: .5rem 1rem .5rem 1rem; }
     .todos__layout--input {
       border: none;
@@ -136,7 +133,6 @@ aside {
   justify-content: space-between;
   padding: 1rem;
   margin-top: .15rem;
-  background-color: white;
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
   max-width: 30rem;
@@ -182,3 +178,49 @@ aside {
 
 footer > p {
   text-align: center; }
+
+.text--light {
+  color: #777a92; }
+
+.text--dark {
+  color: white; }
+
+.body--light {
+  background-color: #fafafa; }
+
+.body--dark {
+  background-color: #161722; }
+
+.header--light {
+  background-image: url("/images/bg-mobile-light.jpg"); }
+
+.header--dark {
+  background-image: url("/images/bg-mobile-dark.jpg"); }
+
+@media (min-width: 376px) {
+  .header--light {
+    background-image: url("/images/bg-desktop-light.jpg"); }
+  .header--dark {
+    background-image: url("/images/bg-desktop-dark.jpg"); } }
+
+.todos__layout--light {
+  background-color: white; }
+  .todos__layout--light > input {
+    background-color: white; }
+
+.todos__layout--dark {
+  background-color: #484b6a; }
+  .todos__layout--dark > input {
+    background-color: #484b6a; }
+
+.todos__manage--light {
+  background-color: white; }
+
+.todos__manage--dark {
+  background-color: #484b6a; }
+
+.filter-box--light {
+  background-color: white; }
+
+.filter-box--dark {
+  background-color: #484b6a; }

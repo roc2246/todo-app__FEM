@@ -1,0 +1,73 @@
+.text{
+  &--light{
+  color: $color-dark-grayish-blue;
+  }
+  &--dark{
+    color: white;
+  }
+}
+
+.body {
+  &--light{
+    background-color: $color-very-light-gray;
+  }
+  &--dark{
+    background-color: $color-very-dark-blue;
+  }
+}
+
+
+
+.header{
+  &--light{
+    background-image: url("/images/bg-mobile-light.jpg");
+  }
+  &--dark{
+    background-image: url("/images/bg-mobile-dark.jpg");
+  }
+}
+@media(min-width: 376px){
+  .header{
+    &--light{
+      background-image: url("/images/bg-desktop-light.jpg");
+    }
+    &--dark{
+      background-image: url("/images/bg-desktop-dark.jpg");
+    }
+  }
+}
+
+
+.todos {
+  &__layout {
+    &--light {
+      background-color: white;
+      & > input {
+        background-color: white;
+      }
+    }
+    &--dark{
+      background-color: $color-very-dark-grayish-blue;
+      & > input {
+        background-color: $color-very-dark-grayish-blue;
+      }
+    }
+  }
+  &__manage{
+    &--light{
+      background-color: white;
+    }
+    &--dark{
+      background-color: $color-very-dark-grayish-blue;
+    }
+  }
+}
+
+.filter-box {
+  &--light {
+    background-color: white;
+  }
+  &--dark{
+      background-color: $color-very-dark-grayish-blue;
+  }
+}
